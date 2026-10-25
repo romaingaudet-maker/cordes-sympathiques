@@ -1,0 +1,1440 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="favicon.svg" type="image/svg+xml"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Cordes sympathiques</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Six vies tendues comme des cordes, de Bach à Brahms. Pincez-en une, celles qui l’ont connue vibrent avec elle, et chaque fil mène à une page.">
+<meta name="theme-color" content="#0c0a08">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Music&text=%F0%9D%84%BD&display=swap">
+<style>
+/* Mise en page : six cordes d’or tendues de la naissance à la mort sur une même échelle de temps, une harpe que l’on touche ; à côté, la notice que l’on lit.
+   Grand écran : notice à gauche, harpe collante à droite. Téléphone : titre, harpe, puis notice. */
+:root{
+  --laque:#0c0a08;          /* laque d’ébène, le fond */
+  --laque-2:#17130f;
+  --ivoire:#ece3d0;         /* ivoire de touche, le texte */
+  --ivoire-2:#bdb29c;
+  --ivoire-3:#938a74;
+  --or:#cdab68;             /* or des cordes */
+  --or-vif:#f1dba3;
+  --or-sombre:#7d6535;
+  --filet:rgba(236,227,208,.13);
+  /* une pierre par compositeur, reprise de sa page */
+  --bach:#cfdcea; --mozart:#b9a4ef; --beethoven:#ecd29a; --chopin:#c3cbd2; --liszt:#ef7b59; --brahms:#ebe1c9;
+  --f-titre:"Bodoni Moda","Bodoni 72",Didot,"Bodoni MT","Times New Roman",serif;
+  --f-texte:"Newsreader","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --f-etiq:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --courbe:cubic-bezier(.2,.75,.2,1);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--laque);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--laque);color:var(--ivoire);font-family:var(--f-texte);font-size:17px;line-height:1.58;font-optical-sizing:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(52% 64% at 74% 46%,rgba(205,171,104,.075),transparent 72%),
+  radial-gradient(36% 42% at 6% 4%,rgba(236,227,208,.04),transparent 70%),
+  linear-gradient(112deg,transparent 34%,rgba(255,236,200,.022) 47%,transparent 60%)}
+body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;background-image:var(--grain,none);background-size:160px 160px}
+::selection{background:var(--or);color:var(--laque)}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:1px solid var(--or-vif);outline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- grille ---------- */
+.page{position:relative;z-index:1;max-width:1760px;margin-inline:auto;display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"tete" "harpe" "notice";
+  padding-left:max(clamp(16px,4vw,64px),env(safe-area-inset-left,0px));padding-right:max(clamp(16px,4vw,64px),env(safe-area-inset-right,0px))}
+.tete{grid-area:tete;container-type:inline-size;padding-block:clamp(24px,4.5vh,44px) 4px}
+.harpe{grid-area:harpe;position:relative;height:clamp(440px,66svh,640px);outline-offset:-1px}
+.notice{grid-area:notice;min-width:0;padding-block:6px 72px}
+@media (min-width:860px){
+  .page{grid-template-columns:minmax(330px,.8fr) minmax(0,1.2fr);grid-template-rows:auto 1fr;grid-template-areas:"tete harpe" "notice harpe";column-gap:clamp(32px,4.5vw,96px)}
+  .tete{padding-block:clamp(40px,10vh,104px) 4px}
+  .harpe{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;height:calc(100svh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}
+  .notice{padding-block:6px 104px}
+}
+
+/* ---------- titre ---------- */
+.surtitre{margin:0 0 1.15rem;font-family:var(--f-etiq);font-stretch:125%;font-weight:500;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--or);text-wrap:balance}
+.titre{margin:0;font-family:var(--f-titre);font-weight:400;font-size:clamp(2.6rem,9.5vw,4.6rem);line-height:.9;letter-spacing:-.015em}
+.titre span{display:block}
+.t2{font-style:italic;color:var(--or-vif);padding-left:.48em}
+@media (min-width:860px){.titre{font-size:clamp(3rem,15.5cqi,6.4rem);line-height:.88}}
+
+/* ---------- harpe ---------- */
+.harpe canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+.commandes{position:absolute;left:0;right:0;top:clamp(10px,2.2vh,22px);display:flex;align-items:center;justify-content:flex-end;gap:18px;z-index:3;pointer-events:none}
+.consigne{margin:0;font-family:var(--f-etiq);font-stretch:112%;font-size:.58rem;line-height:1.55;letter-spacing:.17em;text-transform:uppercase;color:var(--ivoire-3);transition:opacity 1.2s ease}
+.commandes .consigne{display:none;max-width:min(52%,25rem);text-align:right}
+.tete .consigne{margin-top:1.1rem}
+@media (min-width:860px){.commandes .consigne{display:block}.tete .consigne{display:none}}
+.consigne.efface{opacity:0}
+.son{pointer-events:auto;display:inline-flex;align-items:center;gap:.65rem;padding:.55rem .85rem;border:1px solid rgba(236,227,208,.18);background:rgba(12,10,8,.6);color:var(--ivoire-2);font-family:var(--f-etiq);font-stretch:125%;font-weight:500;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:color .3s,border-color .3s,background .3s;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.son:hover{border-color:var(--or-sombre);color:var(--ivoire)}
+.son svg{width:18px;height:14px;flex:none}
+.son .ondes{opacity:0;transition:opacity .4s}
+.son[aria-pressed="true"]{color:var(--or-vif);border-color:var(--or-sombre)}
+.son[aria-pressed="true"] .ondes{opacity:1}
+.son:disabled{opacity:.5;cursor:default}
+.bulle{position:absolute;left:0;top:0;z-index:5;pointer-events:none;max-width:17rem;padding:.55rem .75rem .6rem;background:rgba(14,11,9,.94);border:1px solid rgba(205,171,104,.32);box-shadow:0 12px 32px rgba(0,0,0,.5);font-size:.84rem;line-height:1.4;color:var(--ivoire)}
+.bulle b{display:block;margin-bottom:.15rem;font-family:var(--f-etiq);font-stretch:112%;font-weight:500;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--or)}
+.bulle i{font-family:var(--f-titre)}
+
+/* ---------- notice ---------- */
+.accueil,.fiche{max-width:35rem}
+.intro{margin:0 0 1em;font-size:clamp(1.02rem,.96rem + .3vw,1.15rem);line-height:1.62;text-wrap:pretty}
+.lettrine::first-letter{float:left;margin:.05em .07em 0 0;font-family:var(--f-titre);font-style:italic;font-weight:400;font-size:3.5em;line-height:.8;color:var(--or-vif)}
+.rubrique{display:flex;align-items:center;gap:.85em;margin:2.3rem 0 .9rem;font-family:var(--f-etiq);font-stretch:125%;font-weight:500;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.rubrique::after{content:"";flex:1;height:1px;background:var(--filet)}
+.rubrique .compte{color:var(--ivoire-3);letter-spacing:.16em}
+.petit{margin:0 0 .8rem;font-size:.95rem;line-height:1.55;color:var(--ivoire-2);text-wrap:pretty}
+.pied{margin-top:1.4rem;font-size:.86rem;color:var(--ivoire-3)}
+.pied a{color:var(--ivoire-2);text-decoration-color:rgba(236,227,208,.3);text-underline-offset:.2em}
+
+.table{list-style:none;margin:0;padding:0}
+.table li{padding:.7rem 0 .8rem;border-bottom:1px solid var(--filet)}
+.ligne{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2rem .6rem;width:100%;padding:.15rem 0;background:none;border:0;text-align:left;cursor:pointer}
+.ligne .nom{display:inline-flex;align-items:center;gap:.55em;font-family:var(--f-titre);font-weight:600;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;transition:color .25s}
+.ligne .nom::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--c);flex:none;transform:translateY(-.05em)}
+.ligne .points{flex:1 1 1.5rem;min-width:1.5rem;align-self:center;border-bottom:1px dotted rgba(236,227,208,.28);transform:translateY(.28em)}
+.ligne .t{margin-left:auto;font-family:var(--f-titre);font-style:italic;font-size:1.13rem;color:var(--or-vif);text-align:right}
+.ligne:hover .nom,.ligne:focus-visible .nom{color:var(--c)}
+.resume{margin:.3rem 0 0;font-size:.9rem;line-height:1.5;color:var(--ivoire-2)}
+.ouvrir,.fil-pied a,.voisin{white-space:nowrap;font-family:var(--f-etiq);font-stretch:112%;font-weight:500;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--or-vif);text-decoration:none;border-bottom:1px solid rgba(241,219,163,.3);padding-bottom:.1em;transition:border-color .25s,color .25s}
+.ouvrir:hover,.fil-pied a:hover{border-color:var(--or-vif)}
+.legende{list-style:none;margin:.6rem 0 1rem;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(13rem,1fr));gap:.45rem 1.2rem;font-size:.9rem;color:var(--ivoire-2)}
+.legende li{display:flex;align-items:center}
+.ech{display:inline-block;flex:none;width:30px;height:6px;margin-right:.75em;background:linear-gradient(var(--or),var(--or)) center/100% 1px no-repeat}
+.e-tem{background:radial-gradient(circle,var(--or) 0 .9px,transparent 1.3px) left center/5px 6px repeat-x}
+.e-leg{background:linear-gradient(90deg,var(--or) 0 6px,transparent 6px 11px) left center/11px 1px repeat-x}
+.e-que{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='6'%3E%3Cpath d='M0 3L2.5 1L5 5L7.5 1L10 5L12.5 1L15 5L17.5 1L20 5L22.5 1L25 5L27.5 1L30 3' fill='none' stroke='%23cdab68' stroke-width='1'/%3E%3C/svg%3E") center/30px 6px no-repeat}
+
+.fiche{animation:apparait .55s var(--courbe) both}
+@keyframes apparait{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.retour{display:inline-flex;align-items:center;gap:.6em;padding:.35rem 0;background:none;border:0;cursor:pointer;font-family:var(--f-etiq);font-stretch:112%;font-weight:500;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ivoire-3);transition:color .25s}
+.retour:hover{color:var(--ivoire)}
+.lieux{margin:1.3rem 0 .55rem;font-family:var(--f-etiq);font-stretch:125%;font-weight:500;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--or)}
+.nom-complet{margin:0 0 1rem;font-family:var(--f-titre);font-weight:400;font-size:clamp(2.1rem,1.5rem + 2.4vw,3.4rem);line-height:1;letter-spacing:-.008em;text-wrap:balance}
+.nom-complet:focus{outline:none}
+.site-titre{margin:0 0 .35rem;font-family:var(--f-titre);font-style:italic;font-size:1.5rem;line-height:1.2;color:var(--acc,var(--or-vif))}
+.site-desc{margin:0 0 1.35rem;color:var(--ivoire-2);text-wrap:pretty}
+.entrer{display:inline-flex;align-items:center;gap:1.1rem;padding:.95rem 1.35rem;border:1px solid var(--or-sombre);background:linear-gradient(180deg,rgba(205,171,104,.06),rgba(205,171,104,0));color:var(--or-vif);text-decoration:none;font-family:var(--f-etiq);font-stretch:125%;font-weight:500;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;transition:background .3s,border-color .3s}
+.entrer .fleche{font-size:1rem;letter-spacing:0;transition:transform .35s var(--courbe)}
+.entrer:hover{background:rgba(205,171,104,.12);border-color:var(--or)}
+.entrer:hover .fleche{transform:translateX(4px)}
+.embleme{display:grid;grid-template-columns:56px minmax(0,1fr);gap:1.1rem;align-items:center;margin:1.9rem 0 0;padding:1rem 0;border-block:1px solid var(--filet)}
+.embleme canvas{width:56px;height:56px}
+.embleme figcaption{font-size:.93rem;line-height:1.52;font-style:italic;color:var(--ivoire-2);text-wrap:pretty}
+
+.fils{list-style:none;margin:0;padding:0}
+.fil{position:relative;padding:1.05rem 0 1.15rem;border-bottom:1px solid var(--filet);transition:background .35s}
+.fil::before{content:"";position:absolute;left:-14px;top:1.1rem;bottom:1.1rem;width:1px;background:var(--or-vif);opacity:0;transition:opacity .3s}
+.fil.allume::before,.fil:hover::before{opacity:.8}
+.fil-tete{display:flex;align-items:center;flex-wrap:wrap;gap:.35rem .8rem}
+.annee{font-family:var(--f-etiq);font-stretch:125%;font-weight:500;font-variant-numeric:tabular-nums;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--or)}
+.lieu{font-family:var(--f-etiq);font-stretch:112%;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ivoire-3)}
+.niveau{margin-left:auto;display:inline-flex;align-items:center;font-family:var(--f-etiq);font-stretch:112%;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ivoire-3)}
+.niveau .ech{width:20px;margin-right:.6em}
+.fil-avec{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem .7rem;margin:.6rem 0 .3rem;font-size:.92rem;color:var(--ivoire-3);font-style:italic}
+.vers{display:inline-flex;align-items:center;gap:.5em;padding:0 0 .1em;background:none;border:0;border-bottom:1px solid rgba(236,227,208,.3);cursor:pointer;font-family:var(--f-titre);font-style:normal;font-weight:600;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ivoire);transition:color .25s,border-color .25s}
+.vers::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--c);flex:none}
+.vers:hover{color:var(--c);border-color:var(--c)}
+.fil-nom{margin:0 0 .3rem;font-family:var(--f-titre);font-style:italic;font-size:1.2rem;line-height:1.25;text-wrap:balance}
+.fil-texte{margin:0;font-size:.99rem;line-height:1.56;text-wrap:pretty}
+.fil-texte.grand{font-size:clamp(1.05rem,1rem + .3vw,1.2rem);margin-top:1.1rem}
+.fil-pied{display:flex;flex-wrap:wrap;gap:.45rem 1.1rem;align-items:baseline;justify-content:space-between;margin:.6rem 0 0;font-size:.84rem;line-height:1.4;color:var(--ivoire-3)}
+.fil-pied .lire{display:inline-flex;flex-wrap:wrap;gap:.5rem 1rem}
+.fil-pied .source{font-style:italic}
+.fil-pied a.src{padding:0;white-space:normal;font-family:var(--f-texte);font-stretch:100%;font-weight:400;font-size:inherit;letter-spacing:0;text-transform:none;font-style:italic;color:var(--ivoire-2);border-bottom:1px solid rgba(236,227,208,.25)}
+.paire{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;margin:0}
+.paire .sep{color:var(--ivoire-3)}
+.voisins{display:flex;justify-content:space-between;gap:1rem;margin-top:2.2rem}
+.voisin{background:none;border:0;border-bottom:1px solid rgba(241,219,163,.3);cursor:pointer;padding:0 0 .1em}
+.voisin:hover{border-color:var(--or-vif)}
+
+@media (prefers-reduced-motion:reduce){
+  .fiche{animation:none}
+  .consigne,.entrer .fleche{transition:none}
+}
+</style>
+
+<main class="page" id="page">
+  <header class="tete">
+    <p class="surtitre">Bach&nbsp;· Mozart&nbsp;· Beethoven&nbsp;· Chopin&nbsp;· Liszt&nbsp;· Brahms</p>
+    <h1 class="titre"><span class="t1">Cordes</span><span class="t2">sympathiques</span></h1>
+    <p class="consigne" id="consigne-tete">Touchez une corde. Glissez le doigt en travers pour un arpège.</p>
+  </header>
+
+  <section class="harpe" id="harpe" tabindex="0" aria-label="Harpe de six cordes, une par compositeur. Flèches gauche et droite pour passer d’une corde à l’autre, Entrée pour aller au lien de sa page.">
+    <canvas id="toile" aria-hidden="true"></canvas>
+    <div class="commandes">
+      <p class="consigne" id="consigne">Survolez les cordes pour les pincer. Cliquez pour suivre leurs fils.</p>
+      <button class="son" id="son" type="button" aria-pressed="false">
+        <svg viewBox="0 0 18 14" aria-hidden="true"><g stroke="currentColor" stroke-width="1" fill="none"><path d="M5 1v12M9 1v12M13 1v12"/><path class="ondes" d="M2 4.5q-1.4 2.5 0 5M16 4.5q1.4 2.5 0 5"/></g></svg>
+        <span class="lib">Son coupé</span>
+      </button>
+    </div>
+    <div class="bulle" id="bulle" hidden></div>
+  </section>
+
+  <section class="notice" id="notice" aria-label="Notice"></section>
+  <p class="sr" id="annonce" aria-live="polite"></p>
+</main>
+
+<script>
+(() => {
+'use strict';
+
+/* =====================================================================
+   Données : les six pages, et les fils qui les relient.
+   Chaque fil reprend une anecdote déjà racontée dans l’une des pages,
+   avec le degré de fiabilité que cette page lui donne.
+   ===================================================================== */
+const BASE = 'https://claude.ai/code/artifact/';
+
+const COMPOS = [
+  { id:'bach', nom:'Bach', complet:'Johann Sebastian Bach', n:1685.25, m:1750.57, lieux:'Eisenach 1685 · Leipzig 1750',
+    site:'À un jour-lumière', uuid:'fd3743ea-2cc8-4963-903d-5354a54fb5fa',
+    desc:'Huit mouvements, quarante-huit anecdotes et un silence, de la lune d’Ohrdruf au disque d’or de Voyager 1.',
+    emb:'La lune d’Ohrdruf. Orphelin, il recopie la nuit, à sa lumière, un cahier que son frère garde sous clé.', anEmb:1697,
+    acc:'#cfdcea', f:146.83 },
+  { id:'mozart', nom:'Mozart', complet:'Wolfgang Amadè Mozart', n:1756.07, m:1791.93, lieux:'Salzbourg 1756 · Vienne 1791',
+    site:'L’Étourneau de Mozart', uuid:'12b9e171-1c1a-41b0-9601-95644a9126ce',
+    desc:'La vie de Mozart racontée par son étourneau, en 626 oiseaux et 77 histoires sourcées.',
+    emb:'L’étourneau, acheté à Vienne le 27 mai 1784 pour 34 kreuzers. Mozart note dans ses comptes l’air que l’oiseau sifflait.', anEmb:1784.4,
+    acc:'#b9a4ef', f:220 },
+  { id:'beethoven', nom:'Beethoven', complet:'Ludwig van Beethoven', n:1770.96, m:1827.23, lieux:'Bonn 1770 · Vienne 1827',
+    site:'Beethoven, l’oreille intérieure', uuid:'6b380978-fe53-42d9-823f-93f7edf3a00e',
+    desc:'Neuf mouvements et soixante-trois bagatelles, quasi una fantasia, pour un musicien qui perdit l’ouïe et n’arrêta jamais d’écrire.',
+    emb:'La cochlée, spirale de l’oreille interne. Il avoue sa surdité en 1801. Pincée vers le bas, sa corde ne s’entend presque plus.', anEmb:1801.5,
+    acc:'#ecd29a', f:293.66 },
+  { id:'chopin', nom:'Chopin', complet:'Frédéric Chopin', n:1810.16, m:1849.79, lieux:'Żelazowa Wola 1810 · Paris 1849',
+    site:'Chopin rubato', uuid:'a06f2e29-d069-49dd-a20e-8c917bc0b120',
+    desc:'Une ouverture, six mouvements et une coda, de Varsovie à l’hôtel Lambert. Le texte avance en rubato, comme sa main droite.',
+    emb:'Les fioritures, petites notes qui ornent la mélodie sans l’interrompre. Sa corde vibre en rubato. Elle prend du temps et le rend plus loin.', anEmb:1832,
+    acc:'#c3cbd2', f:369.99 },
+  { id:'liszt', nom:'Liszt', complet:'Franz Liszt', n:1811.81, m:1886.58, lieux:'Raiding 1811 · Bayreuth 1886',
+    site:'Lisztomanie', uuid:'86ce98aa-ad27-4abe-942f-74bf0f885975',
+    desc:'Franz Liszt en quatorze mouvements, de la comète de 1811 aux Nuages gris. Une page à jouer autant qu’à lire.',
+    emb:'La grande comète de 1811, à son plus brillant le mois de sa naissance. Pincez sa corde, elle traverse sa vie.', anEmb:1813.6,
+    acc:'#ef7b59', f:440 },
+  { id:'brahms', nom:'Brahms', complet:'Johannes Brahms', n:1833.35, m:1897.25, lieux:'Hambourg 1833 · Vienne 1897',
+    site:'Brahms en cinq lignes', uuid:'7b8d3959-3bc0-4801-8564-136f089cdae1',
+    desc:'Une vie racontée en thème et variations sur les cinq lignes de la portée.',
+    emb:'Le rastral, plume à cinq becs qui trace d’un geste les cinq lignes de la portée. Quand sa corde vibre, elle s’y dédouble.', anEmb:1853.5,
+    acc:'#ebe1c9', f:493.88 }
+];
+COMPOS.forEach((c, i) => { c.i = i; });
+const PAR_ID = Object.fromEntries(COMPOS.map(c => [c.id, c]));
+
+/* niv : doc = document d’époque, tem = témoignage, leg = légende ou ouï-dire.
+   apres : le fil part du bas de la corde du premier (l’œuvre après la mort).
+   an : position sur la corde du second ; 'fin' = le bas de sa corde. */
+const FILS = [
+  { id:'f01', de:'bach', a:'mozart', an:1764.45, apres:1, niv:'tem', lab:'Souvenir', lieu:'Londres', titre:'Le Bach de Londres',
+    txt:'Jean-Chrétien, le plus jeune fils de Jean-Sébastien Bach, prend l’enfant de huit ans sur ses genoux au clavecin. Ils jouent une sonate en alternant, comme un seul musicien.',
+    src:'Souvenir de Nannerl Mozart, 1792', liens:[['mozart','k16']] },
+  { id:'f02', de:'bach', a:'mozart', an:1782.3, apres:1, niv:'doc', lab:'Lettre', lieu:'Vienne', titre:'Une fugue pour Constanze',
+    txt:'Le baron van Swieten lui prête les fugues de Bach et de Haendel. Constanze s’en éprend et lui en réclame une. Il l’écrit, et l’envoie à sa sœur avec un prélude.',
+    src:'Mozart à Nannerl, 20 avril 1782', liens:[['mozart','k384']] },
+  { id:'f03', de:'bach', a:'mozart', an:1789.3, apres:1, niv:'leg', lab:'Ouï-dire', lieu:'Leipzig', titre:'Les parties tout autour de lui',
+    txt:'À Saint-Thomas, on chante pour lui un motet de Bach. Il n’en existe que les parties séparées. Mozart les étale tout autour de lui pour les lire.',
+    src:'Friedrich Rochlitz, 1799, conteur jugé peu fiable', liens:[['mozart','k550']] },
+  { id:'f04', de:'bach', a:'beethoven', an:1783.2, apres:1, niv:'doc', lab:'Document', lieu:'Bonn', titre:'Un garçon de onze ans',
+    txt:'Son maître Neefe écrit dans une revue que l’élève joue surtout Le Clavier bien tempéré de Bach. Il a en réalité douze ans. On le rajeunissait.',
+    src:'Magazin der Musik, 1783', liens:[['beethoven','b3'],['bach','dacapo']] },
+  { id:'f05', de:'mozart', a:'beethoven', an:1783.2, niv:'doc', lab:'Document', lieu:'Bonn', titre:'Un second Mozart', sag:.05,
+    txt:'Dans le même article, Neefe prédit que l’enfant deviendra « certainement un second Wolfgang Amadeus Mozart » s’il continue comme il a commencé.',
+    src:'Magazin der Musik, 1783', liens:[['beethoven','b3']] },
+  { id:'f06', de:'mozart', a:'beethoven', an:1787.2, niv:'leg', lab:'Légende', lieu:'Vienne', titre:'« Ce garçon fera parler de lui »', sag:.16,
+    txt:'Au début de 1787, Beethoven, seize ans, séjourne à Vienne. On prête à Mozart une prophétie à son sujet. Aucun document ne prouve qu’ils se soient rencontrés.',
+    src:'Récits tardifs de Seyfried et de Jahn', liens:[['mozart','apres'],['beethoven','b4']] },
+  { id:'f07', de:'mozart', a:'beethoven', an:1792.83, apres:1, niv:'doc', lab:'Document', lieu:'Bonn', titre:'L’esprit de Mozart',
+    txt:'Mozart est mort depuis moins d’un an. Dans l’album d’adieu du jeune homme qui part pour Vienne, le comte Waldstein écrit : « vous recevrez l’esprit de Mozart des mains de Haydn ».',
+    src:'Album d’adieu de Beethoven, 1792', liens:[['beethoven','vienne']] },
+  { id:'f08', de:'mozart', a:'chopin', an:1831.93, apres:1, niv:'doc', lab:'Document', lieu:'Leipzig', titre:'Chapeau bas',
+    txt:'Ses Variations op. 2 brodent sur « Là ci darem la mano », un duo du Don Giovanni de Mozart. Schumann les salue d’un « Chapeau bas, Messieurs, un génie ! »',
+    src:'Robert Schumann, Allgemeine musikalische Zeitung, 1831', liens:[['chopin','paris']] },
+  { id:'f09', de:'mozart', a:'chopin', an:'fin', apres:1, niv:'doc', lab:'Document', lieu:'Paris', titre:'Le Requiem à la Madeleine',
+    txt:'Le 30 octobre 1849, on chante le Requiem de Mozart à ses obsèques, comme il l’avait souhaité. Les chanteuses sont cachées derrière un rideau de velours noir.',
+    src:'Récits des obsèques, octobre 1849', liens:[['chopin','vendome'],['mozart','k626']] },
+  { id:'f10', de:'mozart', a:'liszt', an:1824.19, apres:1, niv:'doc', lab:'Document', lieu:'Paris', titre:'Le génie de Mozart',
+    txt:'Le Drapeau blanc se dit convaincu que « l’âme et le génie de Mozart sont passés dans le corps du jeune List ». La presse écorche encore son nom.',
+    src:'Le Drapeau blanc, 9 mars 1824', liens:[['liszt','prodige']] },
+  { id:'f11', de:'mozart', a:'liszt', an:1836.7, apres:1, niv:'tem', lab:'Témoin', lieu:'Fribourg', titre:'Le Dies irae à l’orgue',
+    txt:'Sur le grand orgue neuf de la collégiale Saint-Nicolas, Liszt joue un fragment du Dies irae de Mozart. George Sand, présente, en fait le récit.',
+    src:'George Sand', liens:[['liszt','fugue']] },
+  { id:'f12', de:'bach', a:'liszt', an:1832.33, apres:1, niv:'doc', lab:'Lettre', lieu:'Paris', titre:'Comme deux damnés', hist:'damnes',
+    txt:'Il vient d’entendre Paganini. Son esprit et ses doigts, écrit-il, travaillent « comme deux damnés ». Autour de lui, Homère, la Bible, Platon, Byron, Hugo, et Beethoven, Bach, Hummel, Mozart, Weber.',
+    src:'Liszt à Pierre Wolff, 2 mai 1832', liens:[['liszt','damnes']] },
+  { id:'f13', de:'mozart', a:'liszt', an:1832.33, apres:1, niv:'doc', lab:'Lettre', lieu:'Paris', titre:'Comme deux damnés', hist:'damnes',
+    txt:'', src:'Liszt à Pierre Wolff, 2 mai 1832', liens:[['liszt','damnes']] },
+  { id:'f14', de:'beethoven', a:'liszt', an:1832.33, apres:1, niv:'doc', lab:'Lettre', lieu:'Paris', titre:'Comme deux damnés', hist:'damnes',
+    txt:'', src:'Liszt à Pierre Wolff, 2 mai 1832', liens:[['liszt','damnes']] },
+  { id:'f15', de:'beethoven', a:'liszt', an:1823.45, niv:'doc', lab:'Document', lieu:'Vienne', titre:'Cinquante compositeurs, une valse', sag:.025,
+    txt:'L’éditeur Diabelli demande à des compositeurs une variation chacun sur sa petite valse. Cinquante répondent, dont un Liszt de onze ans. Beethoven, lui, en écrit trente-trois.',
+    src:'Éditions Diabelli, 1823 et 1824', liens:[['beethoven','b40']] },
+  { id:'f16', de:'beethoven', a:'liszt', an:1823.28, niv:'leg', lab:'Légende', lieu:'Vienne', titre:'Le baiser', sag:.12,
+    txt:'Liszt racontera toute sa vie que Beethoven l’a embrassé au front après son concert d’adieu. Beethoven n’y assistait sans doute pas. Si le baiser a eu lieu, ce fut lors d’une visite privée.',
+    src:'Récit tardif de Liszt', liens:[['beethoven','b39'],['liszt','prodige']] },
+  { id:'f17', de:'beethoven', a:'liszt', an:1837.6, apres:1, niv:'doc', lab:'Journal', lieu:'Nohant', titre:'Les nuits de Nohant',
+    txt:'L’été, chez George Sand, il transcrit la nuit les symphonies de Beethoven pour le piano, fenêtres ouvertes, pendant qu’elle écrit Mauprat.',
+    src:'George Sand, 1837', liens:[['liszt','fugue']] },
+  { id:'f18', de:'beethoven', a:'liszt', an:1839.8, apres:1, niv:'doc', lab:'Document', lieu:'Bonn', titre:'La statue de Bonn',
+    txt:'La souscription française pour un monument à Beethoven n’atteint pas 425 francs. Liszt donne à lui seul plus de 10 000 francs. La statue est inaugurée le 12 août 1845.',
+    src:'Souscription de 1839', liens:[['liszt','recital']] },
+  { id:'f19', de:'chopin', a:'liszt', an:1832.15, niv:'tem', lab:'Souvenir', lieu:'Paris', titre:'Salons Pleyel', sag:.02,
+    txt:'Premier concert parisien de Chopin, le 26 février. Liszt est dans la salle. Vingt ans plus tard, il se souvient que les applaudissements ne suffisaient pas à leur enthousiasme.',
+    src:'Liszt, F. Chopin, 1852', liens:[['liszt','chopin']] },
+  { id:'f20', de:'chopin', a:'liszt', an:1833.47, niv:'doc', lab:'Lettre', lieu:'Paris', titre:'Lui voler sa manière', sag:.02,
+    txt:'Pendant que Liszt joue ses Études, Chopin écrit à Ferdinand Hiller qu’il voudrait « lui voler sa manière » de les rendre. Il les lui dédie.',
+    src:'Chopin à Ferdinand Hiller, 20 juin 1833', liens:[['chopin','paris'],['liszt','chopin']] },
+  { id:'f21', de:'chopin', a:'liszt', an:1834.9, niv:'leg', lab:'Légende', lieu:'Paris', anLab:'années 1830', titre:'La phalène', sag:.1,
+    txt:'On raconte que Liszt orne un nocturne de Chopin, qui proteste. Une phalène éteint la lampe et l’on continue dans le noir. Aucune source d’époque ne le confirme.',
+    src:'Légende à plusieurs versions', liens:[['liszt','chopin']] },
+  { id:'f22', de:'chopin', a:'liszt', an:1836.8, niv:'tem', lab:'Témoin', lieu:'Paris', titre:'Une soirée chez Liszt', sag:.02,
+    txt:'C’est à une soirée chez Liszt et Marie d’Agoult que Chopin rencontre George Sand. Selon Ferdinand Hiller, il en revient peu charmé. Deux ans plus tard, il part avec elle pour Majorque.',
+    src:'Ferdinand Hiller', liens:[['chopin','paris'],['liszt','chopin']] },
+  { id:'f23', de:'chopin', a:'liszt', an:1841.32, niv:'doc', lab:'Document', lieu:'Paris', titre:'Roi d’Abyssinie', sag:.02,
+    txt:'Liszt rend compte d’un concert de son ami. L’entourage de Chopin goûte peu l’article. Chopin écrit que Liszt finira député, ou roi d’Abyssinie.',
+    src:'Revue et gazette musicale, 1841 ; lettre de Chopin', liens:[['liszt','chopin']] },
+  { id:'f24', de:'chopin', a:'liszt', an:1852.5, apres:1, niv:'doc', lab:'Document', lieu:'Weimar', titre:'F. Chopin',
+    txt:'Trois ans après la mort de son ami, Liszt publie F. Chopin, le premier livre qui lui soit consacré.',
+    src:'Franz Liszt, F. Chopin, 1852', liens:[['liszt','chopin']] },
+  { id:'f25', de:'bach', a:'chopin', an:1838.95, apres:1, niv:'tem', lab:'On le rapporte', lieu:'Majorque', titre:'Le Clavier bien tempéré à Majorque',
+    txt:'On rapporte que Le Clavier bien tempéré est la seule partition qu’il emporte à Majorque. Il y achève ses vingt-quatre Préludes, un dans chaque tonalité.',
+    src:'Jim Samson, Grove Music Online', liens:[['chopin','valldemossa'],['bach','clavier']] },
+  { id:'f26', de:'bach', a:'chopin', an:1843, apres:1, niv:'doc', lab:'Document', lieu:'Paris', anLab:'vers 1843', titre:'Un Clavier annoté',
+    txt:'Il fait travailler Le Clavier bien tempéré à ses élèves. Un exemplaire annoté par lui, conservé par son élève Pauline Chazaren, a été publié en fac-similé en 2010.',
+    src:'Fac-similé commenté par Jean-Jacques Eigeldinger', srcUrl:'https://omifacsimiles.com/brochures/bach_chopin_wtc.html', liens:[['bach','clavier']] },
+  { id:'f27', de:'liszt', a:'brahms', an:1853.45, niv:'tem', lab:'Témoin', lieu:'Weimar', titre:'Endormi chez Liszt', sag:.03,
+    txt:'À l’Altenburg, Liszt joue sa Sonate en si mineur devant quelques invités. Brahms, vingt ans, s’assoupit dans son fauteuil. Deux témoins le racontent.',
+    src:'William Mason, 1901 ; Ede Reményi', liens:[['brahms','pdo-liszt'],['liszt','sonate']] },
+  { id:'f28', de:'liszt', a:'brahms', an:1860.35, niv:'doc', lab:'Document', lieu:'Berlin', titre:'Le manifeste qui fuit', querelle:1, sag:.02,
+    txt:'Brahms rédige avec Joachim une déclaration contre la « Nouvelle École allemande » de Liszt et de Wagner. Le texte fuit avant d’avoir réuni ses signatures.',
+    src:'Berliner Musik-Zeitung Echo, 6 mai 1860', liens:[['brahms','pdo-manifeste']] },
+  { id:'f29', de:'bach', a:'brahms', an:1877.45, apres:1, niv:'doc', lab:'Lettre', lieu:'', titre:'La Chaconne pour la main gauche',
+    txt:'Il arrange pour piano, à la seule main gauche, la Chaconne pour violon de Bach, et l’envoie à Clara Schumann : « Sur une seule portée, pour un petit instrument, cet homme écrit tout un monde de pensées les plus profondes… »',
+    src:'Brahms à Clara Schumann, juin 1877', liens:[['bach','chaconne']] },
+  { id:'f30', de:'beethoven', a:'brahms', an:1853.33, apres:1, niv:'leg', lab:'Légende', lieu:'Celle', titre:'Un demi-ton trop bas',
+    txt:'Le piano est accordé un demi-ton trop bas. Plutôt que de faire baisser le violon, Brahms aurait joué de mémoire une sonate de Beethoven, transposée un demi-ton plus haut.',
+    src:'Premiers biographes de Brahms', liens:[['brahms','pdo-celle']] },
+  { id:'f31', de:'beethoven', a:'brahms', an:1876.84, apres:1, niv:'tem', lab:'Témoignage', lieu:'Karlsruhe', titre:'Les pas du géant',
+    txt:'« Tu n’as pas idée de ce qu’on éprouve quand on entend sans cesse un tel géant marcher derrière soi. » Sa Première Symphonie est créée le 4 novembre 1876. Bülow la surnomme « la Dixième de Beethoven ».',
+    src:'Max Kalbeck, phrase dont certains historiens doutent', liens:[['brahms','geant']] },
+  { id:'f32', de:'bach', a:'brahms', an:1885, apres:1, niv:'leg', lab:'Mot attribué', lieu:'', anLab:'date incertaine', titre:'Les trois B', hist:'troisb',
+    txt:'Pour le chef Hans von Bülow, son credo musical est en mi bémol majeur, avec trois bémols à la clé : Bach, Beethoven et Brahms. En allemand, B désigne aussi le bémol.',
+    src:'Mot attribué à Hans von Bülow', liens:[['brahms','pdo-troisb']] },
+  { id:'f33', de:'beethoven', a:'brahms', an:1885, apres:1, niv:'leg', lab:'Mot attribué', lieu:'', anLab:'date incertaine', titre:'Les trois B', hist:'troisb',
+    txt:'', src:'Mot attribué à Hans von Bülow', liens:[['brahms','pdo-troisb']] },
+  { id:'f34', de:'beethoven', a:'brahms', an:'fin', apres:1, niv:'doc', lab:'Document', lieu:'Vienne', titre:'Non loin de Beethoven',
+    txt:'Brahms meurt le 3 avril 1897. Il repose au cimetière central de Vienne, non loin de Beethoven et de Schubert.',
+    src:'Cimetière central de Vienne', liens:[['brahms','coda']] },
+  { id:'f35', de:'mozart', a:'brahms', an:1864, apres:1, niv:'doc', lab:'Document', lieu:'Vienne', anLab:'années 1860', titre:'La Symphonie en sol mineur',
+    txt:'La princesse Anne de Hesse lui offre le manuscrit autographe de la Symphonie en sol mineur de Mozart, K. 550. Il le léguera à la Société des amis de la musique de Vienne.',
+    src:'Archives de la Gesellschaft der Musikfreunde', srcUrl:'https://musikverein.at/en/archiv/mozarts-symphonie-nr-40/', liens:[['mozart','k550']] },
+  { id:'f36', de:'bach', a:'liszt', an:1855.5, apres:1, niv:'doc', lab:'Partition', lieu:'Merseburg', titre:'Les quatre notes B-A-C-H',
+    txt:'Pour l’inauguration du grand orgue de la cathédrale de Merseburg, Liszt écrit un prélude et fugue sur les quatre lettres du nom de Bach : si bémol, la, do, si.',
+    src:'Liszt, Prélude et fugue sur B-A-C-H, 1855', liens:[['bach','sujet']] },
+  { id:'f37', de:'bach', a:'voyager', niv:'doc', lab:'Document', lieu:'Cap Canaveral', titre:'Le disque d’or', hist:'voyager',
+    txt:'Le 5 septembre 1977, Voyager 1 emporte un disque d’or. Bach y figure trois fois, Beethoven deux, Mozart une, avec l’air de la Reine de la Nuit. La Cavatine du quatuor op. 130 le referme.',
+    src:'NASA, contenu du disque d’or', srcUrl:'https://science.nasa.gov/?p=385807', liens:[['bach','canon'],['beethoven','voyager'],['mozart','k620']] },
+  { id:'f38', de:'mozart', a:'voyager', niv:'doc', lab:'Document', lieu:'Cap Canaveral', titre:'Le disque d’or', hist:'voyager', txt:'', src:'', liens:[] },
+  { id:'f39', de:'beethoven', a:'voyager', niv:'doc', lab:'Document', lieu:'Cap Canaveral', titre:'Le disque d’or', hist:'voyager', txt:'', src:'', liens:[] }
+];
+const PAR_FIL = Object.fromEntries(FILS.map(f => [f.id, f]));
+/* les fils d’une même histoire partagent le texte du premier */
+const TETE = {};
+for (const f of FILS){ if (f.hist){ if (!TETE[f.hist]) TETE[f.hist] = f; } }
+const histoire = f => (f.hist ? TETE[f.hist] : f);
+const POIDS = { doc:1, tem:.6, leg:.35 };
+
+/* =====================================================================
+   Outils
+   ===================================================================== */
+const reduitMQ = matchMedia('(prefers-reduced-motion: reduce)');
+let reduit = reduitMQ.matches;
+reduitMQ.addEventListener && reduitMQ.addEventListener('change', e => { reduit = e.matches; });
+const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
+const lisse = (a, b, v) => { const t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+const sortie = t => 1 - Math.pow(1 - t, 3);
+const now = () => performance.now() / 1000;
+const fr = s => String(s).replace(/ ([:;!?»])/g, ' $1').replace(/« /g, '« ');
+const lienPage = (id, ancre) => id + '/' + (ancre ? '#' + ancre : '');
+const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
+const nomDe = id => (id === 'voyager' ? 'Voyager 1' : PAR_ID[id].nom);
+const cleAn = f => (f.a === 'voyager' ? 1977.7 : f.an === 'fin' ? PAR_ID[f.a].m : f.an);
+const labelAn = f => f.anLab || String(Math.floor(cleAn(f)));
+const F_TITRE = '"Bodoni Moda","Bodoni 72",Didot,"Times New Roman",serif';
+const F_ETIQ = '"Archivo","Helvetica Neue",Arial,sans-serif';
+const F_MUS = '"Noto Music","Apple Symbols","Segoe UI Symbol",serif';
+
+/* =====================================================================
+   Géométrie de la harpe
+   ===================================================================== */
+const harpe = document.getElementById('harpe');
+const cv = document.getElementById('toile');
+const ctx = cv.getContext('2d');
+const bulle = document.getElementById('bulle');
+const consigne = document.getElementById('consigne');
+const consigneTete = document.getElementById('consigne-tete');
+const notice = document.getElementById('notice');
+const annonce = document.getElementById('annonce');
+const btnSon = document.getElementById('son');
+
+let W = 1, H = 1, DPR = 1;
+const G = { petit:false, top:0, mainH:1, rx:0, s:1, u:6, droite:0, xV:0, yV:0, y1900:0, cordes:[], fils:[], parId:{} };
+const Y0 = 1680, Y1 = 1900;
+const yAn = an => G.top + (an - Y0) / (Y1 - Y0) * G.mainH;
+const anY = y => Y0 + (y - G.top) / G.mainH * (Y1 - Y0);
+
+function mesurer(){
+  const r = harpe.getBoundingClientRect();
+  W = Math.max(1, r.width); H = Math.max(1, r.height);
+  DPR = Math.min(2, window.devicePixelRatio || 1);
+  cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+  G.petit = W < 560;
+  const regle = G.petit ? 50 : 68;
+  G.droite = G.petit ? 8 : 34;
+  G.top = G.petit ? 66 : Math.max(86, H * .105);
+  const zoneV = G.petit ? Math.max(76, H * .14) : Math.max(96, H * .14);
+  G.mainH = Math.max(120, H - G.top - zoneV);
+  G.y1900 = yAn(1900);
+  G.rx = regle - 14;
+  G.s = (W - regle - G.droite) / 6;
+  G.u = clamp(G.s / 13, 4.2, 8.6);
+  const fs = G.petit ? 10 : 12.5;
+  G.cordes = COMPOS.map(c => {
+    const yT = yAn(c.n);
+    return { c, i:c.i, x: regle + G.s * (c.i + .5), yT, yB: yAn(c.m), yNom: yT - (G.petit ? 8 : 11) - c.nom.length * (fs * .82 + (G.petit ? 1.6 : 2.7)) };
+  });
+  G.yV = H - zoneV * .4;
+  G.xV = G.cordes[1].x + G.s * .55;
+  G.fils = FILS.map(geomFil);
+  G.parId = Object.fromEntries(G.fils.map(g => [g.f.id, g]));
+}
+
+function geomFil(f){
+  const A = G.cordes[PAR_ID[f.de].i];
+  let x1, y1, y0;
+  if (f.a === 'voyager'){ x1 = G.xV; y1 = G.yV; y0 = A.yB; }
+  else {
+    const B = G.cordes[PAR_ID[f.a].i];
+    x1 = B.x; y1 = f.an === 'fin' ? B.yB : yAn(f.an);
+    y0 = f.apres ? A.yB : y1;
+  }
+  const x0 = A.x;
+  const L = Math.hypot(x1 - x0, y1 - y0);
+  const horizontal = !f.apres && f.a !== 'voyager';
+  const k = f.sag != null ? f.sag : (horizontal ? .03 : .06);
+  const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2 + L * k;
+  const pts = [];
+  for (let j = 0; j <= 32; j++){ const t = j / 32, m = 1 - t; pts.push([m * m * x0 + 2 * m * t * cx + t * t * x1, m * m * y0 + 2 * m * t * cy + t * t * y1]); }
+  return { f, x0, y0, x1, y1, cx, cy, L, pts, mx: pts[16][0], my: pts[16][1] };
+}
+const surCourbe = (g, t) => { const m = 1 - t; return [m * m * g.x0 + 2 * m * t * g.cx + t * t * g.x1, m * m * g.y0 + 2 * m * t * g.cy + t * t * g.y1]; };
+
+/* =====================================================================
+   État
+   ===================================================================== */
+const vib = COMPOS.map(() => ({ a:0, t0:-9, yp:0, ph:0 }));
+const anim = Object.fromEntries(COMPOS.map(c => [c.id, -9]));
+const pulses = [];
+const lum = { x:0, y:0, tx:0, ty:0, r:200, pointe:false };
+let sel = null;               // {type:'compo'|'fil'|'voyager', id}
+let survol = null;            // cible sous le pointeur
+let survolNotice = null;      // fils allumés depuis la notice
+let survolCompoNotice = null; // corde allumée depuis la table
+let anneeSurvol = null;
+let tOuv = now();
+let interagi = false;
+let prochainFilAmbiant = now() + 4;
+
+/* =====================================================================
+   Son : cordes pincées (Karplus-Strong) et petite réverbération
+   ===================================================================== */
+const Son = {
+  ctx:null, on:false, tampons:[], maitre:null, verb:null, voix:0,
+  init(){
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return false;
+    try { this.ctx = new AC(); } catch (e) { return false; }
+    const c = this.ctx, sr = c.sampleRate;
+    const comp = c.createDynamicsCompressor();
+    comp.threshold.value = -16; comp.knee.value = 12; comp.ratio.value = 3; comp.attack.value = .004; comp.release.value = .25;
+    this.maitre = c.createGain(); this.maitre.gain.value = .9;
+    this.maitre.connect(comp); comp.connect(c.destination);
+    this.verb = c.createConvolver(); this.verb.buffer = this.impulsion(sr, 2.6);
+    const mouille = c.createGain(); mouille.gain.value = .3;
+    this.verb.connect(mouille); mouille.connect(this.maitre);
+    this.tampons = COMPOS.map(cp => this.corde(sr, cp.f, 4.2));
+    return true;
+  },
+  impulsion(sr, dur){
+    const n = Math.floor(sr * dur), b = this.ctx.createBuffer(2, n, sr);
+    for (let ch = 0; ch < 2; ch++){
+      const d = b.getChannelData(ch); let lp = 0;
+      for (let i = 0; i < n; i++){ lp += .35 * ((Math.random() * 2 - 1) - lp); d[i] = lp * Math.pow(1 - i / n, 2.4) * Math.exp(-i / sr * 1.5); }
+    }
+    return b;
+  },
+  corde(sr, f, dur){
+    const n = Math.floor(sr * dur), b = this.ctx.createBuffer(1, n, sr), d = b.getChannelData(0);
+    const N = Math.max(2, Math.round(sr / f - .5));
+    let lp = 0;
+    for (let i = 0; i < N && i < n; i++){ lp += .5 * ((Math.random() * 2 - 1) - lp); d[i] = lp; }
+    let moy = 0; for (let i = 0; i < N; i++) moy += d[i]; moy /= N; for (let i = 0; i < N; i++) d[i] -= moy;
+    const rho = f < 200 ? .9978 : f < 340 ? .997 : .9962;
+    for (let i = N; i < n; i++){ d[i] = rho * .5 * (d[i - N] + (i - N - 1 >= 0 ? d[i - N - 1] : 0)); }
+    let pk = 0; for (let i = 0; i < n; i++){ const a = Math.abs(d[i]); if (a > pk) pk = a; }
+    const g = .9 / (pk || 1), fo = Math.floor(sr * .3);
+    for (let i = 0; i < n; i++) d[i] *= g;
+    for (let i = 0; i < fo; i++) d[n - 1 - i] *= i / fo;
+    return b;
+  },
+  jouer(i, force, an, symp, octave){
+    if (!this.on || !this.ctx || this.ctx.state !== 'running') return;
+    if (symp && this.voix > 18) return;
+    const c = this.ctx, t = c.currentTime + .005;
+    const src = c.createBufferSource(); src.buffer = this.tampons[i];
+    src.playbackRate.value = (octave ? 2 : 1) * (1 + (Math.random() - .5) * .002);
+    const lp = c.createBiquadFilter(); lp.type = 'lowpass'; lp.Q.value = .4;
+    let coupe = symp ? 1700 : 2400 + force * 950;
+    let gain = symp ? .045 + .08 * Math.min(force, 1.6) : .16 + .045 * Math.min(force, 6);
+    if (COMPOS[i].id === 'beethoven' && an){
+      const s = lisse(1796, 1827, an);
+      coupe = coupe * (1 - s) + 230 * s;
+      gain *= 1 - .8 * s;
+    }
+    lp.frequency.value = Math.min(12000, coupe);
+    const g = c.createGain();
+    g.gain.setValueAtTime(.0001, t);
+    g.gain.linearRampToValueAtTime(gain, t + (symp ? .07 : .004));
+    src.connect(lp); lp.connect(g);
+    let sortieNoeud = g;
+    if (c.createStereoPanner){ const p = c.createStereoPanner(); p.pan.value = (i - 2.5) / 2.5 * .55; g.connect(p); sortieNoeud = p; }
+    sortieNoeud.connect(this.maitre); sortieNoeud.connect(this.verb);
+    this.voix++;
+    src.onended = () => { this.voix = Math.max(0, this.voix - 1); };
+    src.start(t); src.stop(t + 4.2);
+  }
+};
+
+btnSon.addEventListener('click', async () => {
+  if (!Son.ctx && !Son.init()){
+    btnSon.querySelector('.lib').textContent = 'Son indisponible';
+    btnSon.disabled = true; return;
+  }
+  try { if (Son.ctx.state !== 'running') await Son.ctx.resume(); } catch (e) {}
+  Son.on = !Son.on;
+  btnSon.setAttribute('aria-pressed', String(Son.on));
+  btnSon.querySelector('.lib').textContent = Son.on ? 'Son activé' : 'Son coupé';
+  if (Son.on) COMPOS.forEach((c, i) => setTimeout(() => pincer(c.id, null, 2.4), 85 * i));
+});
+
+/* =====================================================================
+   Pincer, résonner, voyager le long des fils
+   ===================================================================== */
+function yEmb(c){ return yAn(c.anEmb); }
+
+function pincer(id, y, force, o = {}){
+  const c = PAR_ID[id], k = G.cordes[c.i], v = vib[c.i];
+  if (y == null) y = (k.yT + k.yB) / 2;
+  const amax = G.petit ? 7 : 11;
+  v.a = Math.min(amax, v.a * .5 + force * (G.petit ? 1.25 : 1.85));
+  v.yp = clamp(y, k.yT + 2, k.yB - 2);
+  v.t0 = now();
+  if (!o.symp) anim[id] = now();
+  if (o.son !== false) Son.jouer(c.i, force, anY(y), !!o.symp, false);
+}
+
+function lancerPulse(g, sens, fin, discret){
+  if (reduit){ fin && fin(); return; }
+  pulses.push({ g, t0: now(), dur: clamp(g.L / (discret ? 150 : 330), .45, 2.4), sens, fin, discret: !!discret });
+}
+
+function resonner(id, exclu){
+  const lies = G.fils.filter(g => (g.f.de === id || g.f.a === id) && g.f.id !== exclu);
+  lies.sort((a, b) => cleAn(a.f) - cleAn(b.f));
+  const dejaSon = new Set();
+  lies.forEach((g, n) => {
+    const sens = g.f.de === id ? 1 : -1;
+    const autre = sens > 0 ? g.f.a : g.f.de;
+    setTimeout(() => {
+      lancerPulse(g, sens, () => {
+        if (autre === 'voyager') return;
+        const y = sens > 0 ? g.y1 : g.y0;
+        const son = !dejaSon.has(autre); dejaSon.add(autre);
+        pincer(autre, y, .5 + 1.1 * POIDS[g.f.niv], { symp:true, son });
+      });
+    }, (reduit ? 40 : 110) + n * (reduit ? 25 : 65));
+  });
+}
+
+/* =====================================================================
+   Dessin
+   ===================================================================== */
+function trait(x0, y0, x1, y1){ ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); }
+function etiquette(g, taille, poids){
+  g.font = `${poids || 500} ${taille}px ${F_ETIQ}`;
+  if ('fontStretch' in g) g.fontStretch = 'expanded';
+}
+
+function dessiner(t){
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+  const ouv = reduit ? 99 : t - tOuv;
+  const aRegle = clamp(ouv / .6, 0, 1);
+  const aFils = clamp((ouv - .85) / .9, 0, 1);
+  const aEmb = clamp((ouv - 1.15) / .7, 0, 1);
+  dessinerRegle(aRegle);
+  dessinerFils(aFils);
+  dessinerCordes(t, ouv);
+  dessinerEmblemes(t, aEmb);
+  dessinerNoms(aRegle);
+  dessinerVoyager(t, aFils);
+  dessinerPulses(t);
+  dessinerLigneAn();
+}
+
+function dessinerRegle(a){
+  if (a <= 0) return;
+  const x = G.rx;
+  ctx.save(); ctx.globalAlpha = a;
+  ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(236,227,208,.2)';
+  trait(x, yAn(1680), x, G.y1900);
+  for (let an = 1680; an <= 1900; an += 10){ const y = yAn(an); trait(x - (an % 50 === 0 ? 6 : 3), y, x, y); }
+  etiquette(ctx, G.petit ? 9 : 10);
+  ctx.fillStyle = 'rgba(236,227,208,.46)'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+  for (const an of [1700, 1750, 1800, 1850, 1900]) ctx.fillText(String(an), x - 9, yAn(an));
+  ctx.strokeStyle = 'rgba(236,227,208,.045)';
+  for (const an of [1700, 1800, 1900]) trait(x + 5, yAn(an), W - G.droite * .4, yAn(an));
+  /* le silence : 1750-1756 */
+  const ys0 = yAn(1750.57), ys1 = yAn(1756.07);
+  ctx.strokeStyle = 'rgba(205,171,104,.6)'; ctx.lineWidth = 1.5; trait(x + 3, ys0, x + 3, ys1);
+  if (document.fonts && document.fonts.check(`13px ${F_MUS}`, '\u{1D13D}')){
+    ctx.font = `${G.petit ? 11 : 13}px ${F_MUS}`; ctx.fillStyle = 'rgba(205,171,104,.7)'; ctx.textAlign = 'left';
+    ctx.fillText('\u{1D13D}', x + 8, (ys0 + ys1) / 2);
+  }
+  /* césure, puis 1977 */
+  const yc = G.y1900 + (G.yV - G.y1900) * .45;
+  ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(236,227,208,.22)'; ctx.setLineDash([1.5, 3.5]);
+  trait(x, G.y1900 + 4, x, yc - 8); trait(x, yc + 8, x, G.yV - 6); ctx.setLineDash([]);
+  ctx.strokeStyle = 'rgba(236,227,208,.55)'; trait(x - 5, yc + 5, x - 1, yc - 5); trait(x + 1, yc + 5, x + 5, yc - 5);
+  etiquette(ctx, G.petit ? 9 : 10); ctx.fillStyle = 'rgba(236,227,208,.46)'; ctx.textAlign = 'right';
+  ctx.fillText('1977', x - 9, G.yV);
+  ctx.restore();
+}
+
+function memeHistoire(f, id){ const o = PAR_FIL[id]; return f.id === id || (f.hist && o && f.hist === o.hist); }
+
+function etatFil(g){
+  const f = g.f;
+  const d2 = (g.mx - lum.x) ** 2 + (g.my - lum.y) ** 2;
+  let a = (f.niv === 'leg' ? .12 : .16) + .2 * Math.exp(-d2 / (lum.r * lum.r));
+  let w = 1, vif = false;
+  if (sel){
+    let lie = false;
+    if (sel.type === 'compo') lie = f.de === sel.id || f.a === sel.id;
+    else if (sel.type === 'fil') lie = memeHistoire(f, sel.id);
+    else lie = f.a === 'voyager';
+    if (lie){ a = f.niv === 'leg' ? .52 : .74; w = 1.15; vif = true; } else a *= .38;
+  }
+  if (survolCompoNotice && (f.de === survolCompoNotice || f.a === survolCompoNotice)){ a = Math.max(a, .55); vif = true; }
+  if ((survol && survol.type === 'fil' && memeHistoire(f, survol.id)) || (survolNotice && survolNotice.has(f.id))){ a = 1; w = 1.7; vif = true; }
+  return { a, w, vif };
+}
+
+function zigzag(g){
+  const p = g.pts; ctx.moveTo(p[0][0], p[0][1]);
+  for (let j = 1; j < p.length; j++){
+    const [x, y] = p[j], [px, py] = p[j - 1];
+    const dx = x - px, dy = y - py, l = Math.hypot(dx, dy) || 1;
+    const o = j === p.length - 1 ? 0 : (j % 2 ? 1.8 : -1.8);
+    ctx.lineTo(x - dy / l * o, y + dx / l * o);
+  }
+}
+
+function dessinerFils(aG){
+  if (aG <= 0) return;
+  ctx.save(); ctx.lineCap = 'round';
+  for (const g of G.fils){
+    const e = etatFil(g), f = g.f;
+    const a = e.a * aG; if (a < .01) continue;
+    ctx.strokeStyle = e.vif ? `rgba(241,219,163,${a})` : `rgba(205,171,104,${a})`;
+    ctx.lineWidth = e.w;
+    if (f.niv === 'tem'){ ctx.setLineDash([.1, 3.6]); ctx.lineWidth = e.w + .7; }
+    else if (f.niv === 'leg') ctx.setLineDash([6, 5]);
+    else ctx.setLineDash([]);
+    ctx.beginPath();
+    if (f.querelle) zigzag(g);
+    else { ctx.moveTo(g.x0, g.y0); ctx.quadraticCurveTo(g.cx, g.cy, g.x1, g.y1); }
+    ctx.stroke();
+  }
+  ctx.setLineDash([]); ctx.restore();
+}
+
+function forme(k, v, y, t){
+  const L = k.yB - k.yT; if (L <= 0) return 0;
+  const u = (y - k.yT) / L;
+  const up = clamp((v.yp - k.yT) / L, .06, .94);
+  const tri = u < up ? u / up : (1 - u) / (1 - up);
+  const m = 1 - Math.exp(-(t - v.t0) / .2);
+  let s = tri * (1 - m) + Math.sin(Math.PI * u) * m;
+  if (k.c.id === 'beethoven') s *= 1 - .72 * lisse(1798, 1827, anY(y));
+  return s;
+}
+
+function tracer(k, yFin, dep){
+  const N = 44, L = yFin - k.yT;
+  ctx.beginPath();
+  for (let j = 0; j <= N; j++){ const y = k.yT + L * j / N; const dx = dep(y); if (j) ctx.lineTo(k.x + dx, y); else ctx.moveTo(k.x + dx, y); }
+}
+
+function dessinerCordes(t, ouv){
+  const lw = G.petit ? 1.05 : 1.25;
+  for (const k of G.cordes){
+    const c = k.c, v = vib[k.i];
+    const p = reduit ? 1 : sortie(clamp((ouv - .15 - k.i * .13) / .7, 0, 1));
+    const choisi = sel && sel.type === 'compo' && sel.id === c.id;
+    const touche = (survol && survol.type === 'compo' && survol.id === c.id) || survolCompoNotice === c.id;
+    const vivant = anneeSurvol != null && anneeSurvol >= c.n && anneeSurvol <= c.m;
+    const lieFil = sel && sel.type === 'fil' && (PAR_FIL[sel.id].de === c.id || PAR_FIL[sel.id].a === c.id || (PAR_FIL[sel.id].hist && FILS.some(f => f.hist === PAR_FIL[sel.id].hist && (f.de === c.id || f.a === c.id))));
+    const terne = sel && sel.type === 'compo' && !choisi;
+    const L = k.yB - k.yT, yFin = k.yT + L * p;
+
+    if (choisi || touche || lieFil){
+      ctx.save(); ctx.lineCap = 'round';
+      ctx.strokeStyle = rgba(c.acc, choisi ? .1 : .055); ctx.lineWidth = choisi ? 10 : 7;
+      trait(k.x, k.yT, k.x, k.yB);
+      ctx.restore();
+    }
+    if (p < 1){ ctx.strokeStyle = 'rgba(205,171,104,.17)'; ctx.lineWidth = 1; trait(k.x, k.yT, k.x, k.yB); }
+
+    /* couleur : or ; chez Beethoven, l’or s’assourdit en graphite */
+    const base = choisi || lieFil ? [241, 219, 163] : [205, 171, 104];
+    const al = choisi ? 1 : touche || vivant || lieFil ? .95 : terne ? .55 : .8;
+    let style;
+    if (c.id === 'beethoven'){
+      const gr = ctx.createLinearGradient(0, k.yT, 0, k.yB);
+      const f1 = clamp((yAn(1798) - k.yT) / L, 0, 1), f2 = clamp((yAn(1816) - k.yT) / L, 0, 1);
+      gr.addColorStop(0, `rgba(${base},${al})`); gr.addColorStop(f1, `rgba(${base},${al})`);
+      gr.addColorStop(f2, `rgba(160,140,104,${al * .85})`); gr.addColorStop(1, `rgba(108,106,100,${al * .8})`);
+      style = gr;
+    } else style = `rgba(${base},${al})`;
+
+    const vibre = v.a > .05;
+    const ph = v.ph;
+    const dep = vibre ? (y => v.a * forme(k, v, y, t) * Math.cos(ph)) : (() => 0);
+
+    if (vibre){
+      /* fuseau de vibration */
+      const N = 30;
+      ctx.beginPath();
+      for (let j = 0; j <= N; j++){ const y = k.yT + L * j / N; const d = v.a * forme(k, v, y, t); if (j) ctx.lineTo(k.x + d, y); else ctx.moveTo(k.x + d, y); }
+      for (let j = N; j >= 0; j--){ const y = k.yT + L * j / N; ctx.lineTo(k.x - v.a * forme(k, v, y, t), y); }
+      ctx.fillStyle = rgba(c.acc, .075 * clamp(v.a / 5, 0, 1)); ctx.fill();
+      ctx.strokeStyle = 'rgba(241,219,163,.22)'; ctx.lineWidth = lw * .8;
+      tracer(k, yFin, y => -dep(y)); ctx.stroke();
+    }
+
+    ctx.lineCap = 'round';
+    if (c.id === 'brahms' && vibre && v.a > .4){
+      /* le rastral : la corde se dédouble en cinq lignes */
+      const ecart = (G.petit ? 2.2 : 3) * clamp(v.a / 5, 0, 1);
+      for (let j = -2; j <= 2; j++){
+        ctx.strokeStyle = style; ctx.lineWidth = lw * (j ? .75 : 1);
+        tracer(k, yFin, y => dep(y) + j * ecart * Math.sin(Math.PI * clamp((y - k.yT) / L, 0, 1))); ctx.stroke();
+      }
+    } else {
+      ctx.strokeStyle = style; ctx.lineWidth = lw + (choisi ? .5 : 0);
+      tracer(k, yFin, dep); ctx.stroke();
+    }
+
+    /* reflet de la lumière qui passe */
+    const dxl = Math.abs(k.x - lum.x);
+    const chute = Math.exp(-(dxl * dxl) / (lum.r * lum.r * .3));
+    if (chute > .03 && p > .2){
+      const gr2 = ctx.createLinearGradient(0, lum.y - lum.r * .75, 0, lum.y + lum.r * .75);
+      gr2.addColorStop(0, 'rgba(255,240,205,0)'); gr2.addColorStop(.5, `rgba(255,242,210,${.6 * chute})`); gr2.addColorStop(1, 'rgba(255,240,205,0)');
+      ctx.strokeStyle = gr2; ctx.lineWidth = lw;
+      tracer(k, yFin, dep); ctx.stroke();
+    }
+
+    /* chevilles */
+    ctx.beginPath(); ctx.arc(k.x, k.yT, G.petit ? 2.4 : 3, 0, 7);
+    ctx.fillStyle = '#0c0a08'; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = choisi ? rgba(c.acc, 1) : 'rgba(236,227,208,.75)'; ctx.stroke();
+    if (p > .98){
+      ctx.beginPath(); ctx.arc(k.x, k.yB, G.petit ? 2 : 2.5, 0, 7);
+      ctx.fillStyle = choisi ? '#f1dba3' : 'rgba(205,171,104,.9)'; ctx.fill();
+    }
+    if (choisi || touche){
+      etiquette(ctx, G.petit ? 8.5 : 9.5); ctx.fillStyle = 'rgba(241,219,163,.85)'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+      ctx.fillText(String(Math.floor(c.n)), k.x - 7, k.yT);
+      ctx.fillText(String(Math.floor(c.m)), k.x - 7, k.yB);
+    }
+  }
+}
+
+/* ---------- emblèmes : un par page ---------- */
+function lune(g, x, y, u, dt, fort){
+  const r = u * .95;
+  const pul = dt < 2.4 ? Math.sin(clamp(dt / 2.4, 0, 1) * Math.PI) : 0;
+  const halo = .13 + .3 * pul + (fort ? .1 : 0);
+  let gr = g.createRadialGradient(x, y, r * .5, x, y, r * 4.4);
+  gr.addColorStop(0, `rgba(207,220,234,${halo})`); gr.addColorStop(1, 'rgba(207,220,234,0)');
+  g.fillStyle = gr; g.beginPath(); g.arc(x, y, r * 4.4, 0, 7); g.fill();
+  g.save(); g.beginPath(); g.arc(x, y, r, 0, 7); g.clip();
+  gr = g.createRadialGradient(x - r * .35, y - r * .35, r * .1, x, y, r);
+  gr.addColorStop(0, '#f6f9fc'); gr.addColorStop(.7, '#cfdcea'); gr.addColorStop(1, '#8fa3ba');
+  g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2);
+  g.fillStyle = 'rgba(143,163,186,.38)';
+  g.beginPath(); g.arc(x - r * .3, y + r * .25, r * .22, 0, 7); g.fill();
+  g.beginPath(); g.arc(x - r * .05, y - r * .38, r * .14, 0, 7); g.fill();
+  g.fillStyle = 'rgba(12,10,8,.8)'; g.beginPath(); g.arc(x + r * .66, y - r * .16, r * .96, 0, 7); g.fill();
+  g.restore();
+}
+
+function corpsEtourneau(g, bx, by, u){
+  const gr = g.createLinearGradient(bx - u * 1.4, by + u * .5, bx + u, by - u * .7);
+  gr.addColorStop(0, '#7d5fc4'); gr.addColorStop(.55, '#3f9c88'); gr.addColorStop(1, '#b4884a');
+  g.fillStyle = gr;
+  g.beginPath(); /* queue */
+  g.moveTo(bx - u * .6, by + u * .15); g.lineTo(bx - u * 1.4, by + u * .62); g.lineTo(bx - u * 1.18, by + u * .84); g.lineTo(bx - u * .45, by + u * .44); g.closePath(); g.fill();
+  g.beginPath(); g.ellipse(bx, by, u * .84, u * .5, -.38, 0, 7); g.fill();
+  g.beginPath(); g.arc(bx + u * .62, by - u * .52, u * .35, 0, 7); g.fill();
+  g.fillStyle = '#e0bd62'; /* bec jaune */
+  g.beginPath(); g.moveTo(bx + u * .9, by - u * .62); g.lineTo(bx + u * 1.42, by - u * .5); g.lineTo(bx + u * .92, by - u * .42); g.closePath(); g.fill();
+  g.fillStyle = 'rgba(236,227,208,.85)'; /* mouchetures */
+  for (const [px, py] of [[-.35, -.05], [-.05, .12], [.2, -.18], [-.5, .2], [.12, .25]]){ g.beginPath(); g.arc(bx + u * px, by + u * py, u * .055, 0, 7); g.fill(); }
+  g.fillStyle = '#0c0a08'; g.beginPath(); g.arc(bx + u * .72, by - u * .6, u * .07, 0, 7); g.fill();
+}
+
+function etourneau(g, kx, y, u, dt){
+  const bx0 = kx - u * 1.32, by0 = y;
+  const vol = dt >= 0 && dt < 1.7;
+  if (!vol){
+    corpsEtourneau(g, bx0, by0, u);
+    g.strokeStyle = 'rgba(205,171,104,.75)'; g.lineWidth = .8;
+    g.beginPath(); g.moveTo(bx0 + u * .05, by0 + u * .42); g.lineTo(kx, y + u * .6); g.moveTo(bx0 + u * .3, by0 + u * .36); g.lineTo(kx, y + u * .42); g.stroke();
+    return;
+  }
+  const s = dt / 1.7, R = u * 3.3;
+  const px = bx0 - R * 1.5 * Math.sin(Math.PI * s), py = by0 - R * .9 * Math.sin(2 * Math.PI * s) - R * .35 * Math.sin(Math.PI * s);
+  const ds = .01, qx = bx0 - R * 1.5 * Math.sin(Math.PI * (s + ds)), qy = by0 - R * .9 * Math.sin(2 * Math.PI * (s + ds)) - R * .35 * Math.sin(Math.PI * (s + ds));
+  const ang = Math.atan2(qy - py, qx - px);
+  const bat = Math.sin(dt * 34) * .9;
+  g.save(); g.translate(px, py); g.rotate(ang);
+  g.fillStyle = '#5d6fb0';
+  g.beginPath(); g.ellipse(0, 0, u * .7, u * .32, 0, 0, 7); g.fill();
+  g.strokeStyle = '#8a74cf'; g.lineWidth = u * .22; g.lineCap = 'round';
+  g.beginPath(); g.moveTo(-u * .1, 0); g.quadraticCurveTo(-u * .5, -u * (1.1 * bat), -u * .9, -u * (1.25 * bat)); g.stroke();
+  g.beginPath(); g.moveTo(-u * .1, 0); g.quadraticCurveTo(-u * .5, u * (1.1 * bat), -u * .9, u * (1.25 * bat)); g.stroke();
+  g.fillStyle = '#e0bd62'; g.beginPath(); g.moveTo(u * .66, -u * .08); g.lineTo(u * 1.05, 0); g.lineTo(u * .66, u * .08); g.fill();
+  g.restore();
+}
+
+function cochlee(g, cx, cy, u, dt){
+  const tours = 2.75, T = tours * Math.PI * 2, rM = u * 1.18;
+  g.fillStyle = 'rgba(12,10,8,.85)'; g.beginPath(); g.arc(cx, cy, rM * 1.08, 0, 7); g.fill();
+  g.strokeStyle = 'rgba(240,220,170,.92)'; g.lineWidth = .9;
+  g.beginPath();
+  for (let j = 0; j <= 120; j++){ const th = T * j / 120; const r = rM * Math.pow(.12, th / T); const x = cx + r * Math.cos(th + .6), y = cy + r * Math.sin(th + .6); if (j) g.lineTo(x, y); else g.moveTo(x, y); }
+  g.stroke();
+  g.strokeStyle = 'rgba(240,220,170,.4)'; g.lineWidth = .6;
+  for (let j = 0; j < 9; j++){ const th = j * .62; const r = rM * Math.pow(.12, th / T); const r2 = r * .8; g.beginPath(); g.moveTo(cx + r * Math.cos(th + .6), cy + r * Math.sin(th + .6)); g.lineTo(cx + r2 * Math.cos(th + .6), cy + r2 * Math.sin(th + .6)); g.stroke(); }
+  if (dt >= 0 && dt < 1.6){
+    const th = T * sortie(dt / 1.6); const r = rM * Math.pow(.12, th / T);
+    const x = cx + r * Math.cos(th + .6), y = cy + r * Math.sin(th + .6);
+    const gr = g.createRadialGradient(x, y, 0, x, y, u * .9); gr.addColorStop(0, 'rgba(255,244,214,.95)'); gr.addColorStop(1, 'rgba(255,244,214,0)');
+    g.fillStyle = gr; g.beginPath(); g.arc(x, y, u * .9, 0, 7); g.fill();
+  }
+}
+
+function fioritures(g, x, y, u, dt){
+  const pts = [];
+  for (let j = 0; j < 7; j++){ const s = j / 6; pts.push([x - u * 2.5 + u * 2.15 * s, y + u * 1 - u * 2 * s - Math.sin(s * Math.PI) * u * .35]); }
+  g.strokeStyle = 'rgba(195,203,210,.5)'; g.lineWidth = .7;
+  g.beginPath(); g.moveTo(pts[0][0] - u * .2, pts[0][1] - u * .55); g.quadraticCurveTo(x - u * 1.7, y - u * 1.9, pts[6][0] + u * .1, pts[6][1] - u * .6); g.stroke();
+  pts.forEach(([px, py], j) => {
+    const on = dt >= 0 && dt - j * .085 >= 0 && dt - j * .085 < .42;
+    if (on){ const gr = g.createRadialGradient(px, py, 0, px, py, u * .9); gr.addColorStop(0, 'rgba(235,242,248,.85)'); gr.addColorStop(1, 'rgba(235,242,248,0)'); g.fillStyle = gr; g.beginPath(); g.arc(px, py, u * .9, 0, 7); g.fill(); }
+    g.fillStyle = on ? '#f4f7fa' : 'rgba(195,203,210,.9)';
+    g.beginPath(); g.ellipse(px, py, u * .3, u * .2, -.45, 0, 7); g.fill();
+  });
+}
+
+function comete(g, kx, y, yBas, u, dt){
+  let yh = y, a = 1, a2 = 0;
+  if (dt >= 0 && dt < 1.7){ const s = dt / 1.7; yh = y + (yBas - y) * (s < .5 ? 2 * s * s : 1 - Math.pow(-2 * s + 2, 2) / 2); a = 1 - lisse(.82, 1, s); }
+  else if (dt >= 1.7 && dt < 2.4){ a = 0; a2 = (dt - 1.7) / .7; }
+  const dessinTete = (yy, al) => {
+    if (al <= 0) return;
+    /* la queue part vers le haut et la droite, et laisse le nom au-dessus de la cheville */
+    const queue = u * 5.6, ax = Math.sin(.62), ay = Math.cos(.62);
+    const qx = kx + ax * queue, qy = yy - ay * queue;
+    let gr = g.createLinearGradient(qx, qy, kx, yy);
+    gr.addColorStop(0, 'rgba(239,123,89,0)'); gr.addColorStop(1, `rgba(239,123,89,${.55 * al})`);
+    g.fillStyle = gr; g.beginPath();
+    g.moveTo(kx - ay * u * .36, yy - ax * u * .36); g.lineTo(qx - ay * u * .06, qy - ax * u * .06);
+    g.lineTo(qx + ay * u * .06, qy + ax * u * .06); g.lineTo(kx + ay * u * .36, yy + ax * u * .36); g.closePath(); g.fill();
+    g.strokeStyle = `rgba(190,215,240,${.38 * al})`; g.lineWidth = .6;
+    g.beginPath(); g.moveTo(kx + u * .15, yy - u * .1); g.lineTo(kx + Math.sin(.85) * queue * 1.12, yy - Math.cos(.85) * queue * 1.12); g.stroke();
+    gr = g.createRadialGradient(kx, yy, 0, kx, yy, u * 1.9);
+    gr.addColorStop(0, `rgba(255,246,230,${al})`); gr.addColorStop(.25, `rgba(255,196,150,${.75 * al})`); gr.addColorStop(1, 'rgba(239,123,89,0)');
+    g.fillStyle = gr; g.beginPath(); g.arc(kx, yy, u * 1.9, 0, 7); g.fill();
+  };
+  dessinTete(yh, a);
+  if (a2 > 0) dessinTete(y, a2);
+}
+
+function rastral(g, x, y, u, dt){
+  const ext = dt >= 0 && dt < 1.4 ? Math.sin(dt / 1.4 * Math.PI) : 0;
+  const l = u * (1.45 + 1.6 * ext), e = u * .3;
+  g.strokeStyle = 'rgba(235,225,201,.85)'; g.lineWidth = .8;
+  for (let j = -2; j <= 2; j++){ const yy = y + j * e; g.beginPath(); g.moveTo(x - l, yy); g.lineTo(x + l, yy); g.stroke(); }
+  g.fillStyle = 'rgba(235,225,201,.9)';
+  for (let j = -2; j <= 2; j++){ g.beginPath(); g.arc(x - l, y + j * e, .9, 0, 7); g.fill(); }
+}
+
+function dessinerEmblemes(t, a){
+  if (a <= 0) return;
+  ctx.save(); ctx.globalAlpha = a;
+  for (const k of G.cordes){
+    const c = k.c, y = yEmb(c), u = G.u, dt = t - anim[c.id];
+    const fort = sel && sel.type === 'compo' && sel.id === c.id;
+    if (c.id === 'bach') lune(ctx, k.x - .5, y, u, dt, fort);
+    else if (c.id === 'mozart') etourneau(ctx, k.x, y, u, dt);
+    else if (c.id === 'beethoven') cochlee(ctx, k.x - u * .55, y, u, dt);
+    else if (c.id === 'chopin') fioritures(ctx, k.x, y, u, dt);
+    else if (c.id === 'liszt') comete(ctx, k.x, y, k.yB, u, dt);
+    else rastral(ctx, k.x, y, u, dt);
+  }
+  ctx.restore();
+}
+
+/* le nom prolonge la corde au-dessus de sa cheville, et se lit de bas en haut, comme au dos d’un livre */
+function dessinerNoms(a){
+  if (a <= 0) return;
+  const fs = G.petit ? 10 : 12.5, ls = G.petit ? 1.6 : 2.7;
+  ctx.save(); ctx.globalAlpha = a;
+  ctx.font = `600 ${fs}px ${F_TITRE}`;
+  if ('fontStretch' in ctx) ctx.fontStretch = 'normal';
+  ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
+  for (const k of G.cordes){
+    const c = k.c;
+    const choisi = sel && sel.type === 'compo' && sel.id === c.id;
+    const touche = (survol && survol.type === 'compo' && survol.id === c.id) || survolCompoNotice === c.id;
+    const al = choisi || touche ? 1 : sel && sel.type === 'compo' ? .5 : .82;
+    ctx.fillStyle = choisi ? c.acc : `rgba(236,227,208,${al})`;
+    ctx.save(); ctx.translate(k.x + .5, k.yT - (G.petit ? 8 : 11)); ctx.rotate(-Math.PI / 2);
+    let xx = 0;
+    for (const ch of c.nom.toUpperCase()){ ctx.fillText(ch, xx, 0); xx += ctx.measureText(ch).width + ls; }
+    ctx.restore();
+  }
+  ctx.restore();
+}
+
+function dessinerVoyager(t, a){
+  if (a <= 0) return;
+  const x = G.xV, y = G.yV, r = G.petit ? 4.3 : 5.4;
+  const actif = (sel && sel.type === 'voyager') || (survol && survol.type === 'voyager');
+  ctx.save(); ctx.globalAlpha = a;
+  let gr = ctx.createRadialGradient(x, y, 0, x, y, r * 5);
+  gr.addColorStop(0, `rgba(241,219,163,${actif ? .34 : .16})`); gr.addColorStop(1, 'rgba(241,219,163,0)');
+  ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(x, y, r * 5, 0, 7); ctx.fill();
+  gr = ctx.createRadialGradient(x - r * .3, y - r * .3, 0, x, y, r);
+  gr.addColorStop(0, '#f3dda0'); gr.addColorStop(1, '#a8833d');
+  ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
+  ctx.strokeStyle = 'rgba(12,10,8,.4)'; ctx.lineWidth = .6;
+  for (const q of [.8, .58, .38]){ ctx.beginPath(); ctx.arc(x, y, r * q, 0, 7); ctx.stroke(); }
+  const ang = reduit ? 1 : t * .7;
+  ctx.strokeStyle = 'rgba(255,248,226,.9)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(x, y, r * .9, ang, ang + .9); ctx.stroke();
+  ctx.fillStyle = '#0c0a08'; ctx.beginPath(); ctx.arc(x, y, r * .15, 0, 7); ctx.fill();
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  ctx.font = `italic 400 ${G.petit ? 12.5 : 15}px ${F_TITRE}`;
+  ctx.fillStyle = actif ? '#f1dba3' : 'rgba(236,227,208,.86)';
+  ctx.fillText('Voyager 1', x + r + 9, y + (G.petit ? 1 : 2));
+  etiquette(ctx, G.petit ? 8 : 9);
+  if ('letterSpacing' in ctx) ctx.letterSpacing = '1.4px';
+  ctx.fillStyle = 'rgba(205,171,104,.78)';
+  ctx.fillText(G.petit ? 'DISQUE D’OR · 1977' : 'LE DISQUE D’OR · 1977 → AUJOURD’HUI', x + r + 9, y + (G.petit ? 14 : 17));
+  ctx.restore();
+}
+
+function dessinerPulses(t){
+  for (let i = pulses.length - 1; i >= 0; i--){
+    const p = pulses[i];
+    const s = (t - p.t0) / p.dur;
+    if (s >= 1){ pulses.splice(i, 1); if (p.fin) p.fin(); continue; }
+    if (s < 0) continue;
+    const al = p.discret ? .5 : 1;
+    for (let j = 1; j < 8; j++){
+      const ss = s - j * .016; if (ss < 0) break;
+      const [x, y] = surCourbe(p.g, p.sens > 0 ? ss : 1 - ss);
+      ctx.fillStyle = `rgba(255,240,205,${al * (1 - j / 8) * .7})`;
+      ctx.beginPath(); ctx.arc(x, y, (p.discret ? 1.1 : 1.7) * (1 - j / 10), 0, 7); ctx.fill();
+    }
+    const [x, y] = surCourbe(p.g, p.sens > 0 ? s : 1 - s);
+    const R = p.discret ? 7 : 12;
+    const gr = ctx.createRadialGradient(x, y, 0, x, y, R);
+    gr.addColorStop(0, `rgba(255,244,214,${.85 * al})`); gr.addColorStop(.25, `rgba(241,219,163,${.35 * al})`); gr.addColorStop(1, 'rgba(241,219,163,0)');
+    ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(x, y, R, 0, 7); ctx.fill();
+  }
+}
+
+function dessinerLigneAn(){
+  if (anneeSurvol == null) return;
+  const y = yAn(anneeSurvol);
+  ctx.save();
+  ctx.strokeStyle = 'rgba(236,227,208,.14)'; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+  trait(G.rx + 7, y, W - G.droite * .4, y); ctx.setLineDash([]);
+  const txt = String(Math.floor(anneeSurvol));
+  etiquette(ctx, 10);
+  const w = ctx.measureText(txt).width + 12;
+  ctx.fillStyle = 'rgba(12,10,8,.94)'; ctx.fillRect(G.rx - w - 2, y - 8, w, 16);
+  ctx.strokeStyle = 'rgba(205,171,104,.5)'; ctx.strokeRect(G.rx - w - 1.5, y - 7.5, w - 1, 15);
+  ctx.fillStyle = '#f1dba3'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(txt, G.rx - w / 2 - 2, y + .5);
+  ctx.restore();
+}
+
+/* =====================================================================
+   Animation
+   ===================================================================== */
+function majEtat(dt, t){
+  for (const k of G.cordes){
+    const v = vib[k.i];
+    if (v.a < .02){ v.a = 0; continue; }
+    const tau = k.c.id === 'chopin' ? 1.25 : k.c.id === 'beethoven' ? .8 : 1.05;
+    v.a *= Math.exp(-dt / tau);
+    let w = Math.PI * 2 * 9.5;
+    if (k.c.id === 'chopin') w *= 1 + .55 * Math.sin((t - v.t0) * 2.3);   /* rubato */
+    v.ph += w * dt;
+  }
+  /* la lumière : elle suit le pointeur, sinon elle dérive lentement */
+  lum.r = Math.max(W, H) * .24;
+  if (!lum.pointe){
+    if (reduit){ lum.tx = W * .55; lum.ty = H * .42; }
+    else { lum.tx = W * (.52 + .36 * Math.sin(t * .11)); lum.ty = G.top + G.mainH * (.5 + .44 * Math.sin(t * .073 + 1.3)); }
+  }
+  const k = 1 - Math.exp(-dt * (lum.pointe ? 9 : 1.2));
+  lum.x += (lum.tx - lum.x) * k; lum.y += (lum.ty - lum.y) * k;
+  /* de temps en temps, une résonance traverse un fil d’elle-même */
+  if (!reduit && t > prochainFilAmbiant && t - tOuv > 3){
+    prochainFilAmbiant = t + 5 + Math.random() * 4.5;
+    const g = G.fils[Math.floor(Math.random() * G.fils.length)];
+    lancerPulse(g, 1, () => {
+      if (g.f.a === 'voyager') return;
+      const c = PAR_ID[g.f.a], v = vib[c.i];
+      v.a = Math.max(v.a, G.petit ? 1.2 : 1.8); v.yp = g.y1; v.t0 = now();
+    }, true);
+  }
+}
+
+let derniere = now(), dernierDessin = 0, rafId = 0;
+function boucle(){
+  const t = now(), dt = Math.min(.05, t - derniere); derniere = t;
+  majEtat(dt, t);
+  const calme = !pulses.length && vib.every(v => v.a < .05) && t - tOuv > 2.6 && !survol && anneeSurvol == null;
+  if (!calme || t - dernierDessin > .033){ dessiner(t); dernierDessin = t; }
+  rafId = requestAnimationFrame(boucle);
+}
+
+/* =====================================================================
+   Pointeur, toucher, clavier
+   ===================================================================== */
+const ptr = { px:null, py:null, pt:0, bas:null };
+function pos(e){ const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
+
+function cibleEn(x, y, tactile){
+  if (Math.hypot(x - G.xV, y - G.yV) < (tactile ? 22 : 15)) return { type:'voyager', id:'voyager' };
+  const tolC = tactile ? Math.min(G.s * .45, 24) : Math.min(G.s * .3, 13);
+  let best = null, bd = 1e9;
+  for (const k of G.cordes){
+    if (y < k.yNom - 6 || y > k.yB + 12) continue;
+    const d = Math.abs(x - k.x);
+    if (d < tolC && d < bd){ bd = d; best = { type:'compo', id:k.c.id }; }
+  }
+  if (best) return best;
+  const tolF = tactile ? 12 : 6;
+  let bf = null, bfd = 1e9;
+  for (const g of G.fils){
+    for (let j = 1; j < g.pts.length; j++){
+      const d = distSeg(x, y, g.pts[j - 1], g.pts[j]);
+      if (d < tolF && d < bfd){ bfd = d; bf = { type:'fil', id:g.f.id }; }
+    }
+  }
+  return bf;
+}
+function distSeg(x, y, a, b){
+  const dx = b[0] - a[0], dy = b[1] - a[1], l2 = dx * dx + dy * dy || 1;
+  const t = clamp(((x - a[0]) * dx + (y - a[1]) * dy) / l2, 0, 1);
+  return Math.hypot(x - a[0] - t * dx, y - a[1] - t * dy);
+}
+
+function croisements(x0, y0, x1, y1, dt){
+  if (x0 === x1) return;
+  const vitesse = Math.abs(x1 - x0) / Math.max(.008, dt);
+  for (const k of G.cordes){
+    if ((x0 - k.x) * (x1 - k.x) < 0){
+      const y = y0 + (y1 - y0) * (k.x - x0) / (x1 - x0);
+      if (y >= k.yT - 2 && y <= k.yB + 2){ pincer(k.c.id, y, clamp(vitesse / 260, .8, 6)); premiereInteraction(); }
+    }
+  }
+}
+
+function majBulle(x, y){
+  let html = '';
+  if (survol && survol.type === 'compo'){
+    const c = PAR_ID[survol.id];
+    html = `<b>${c.nom} · ${Math.round(clamp(anY(y), c.n, c.m))}</b><i>${c.site}</i>`;
+  } else if (survol && survol.type === 'fil'){
+    const f = PAR_FIL[survol.id], h = histoire(f);
+    const qui = f.hist ? [...new Set(FILS.filter(x => x.hist === f.hist).map(x => nomDe(x.de)))].join(', ') + ' → ' + nomDe(f.a) : nomDe(f.de) + ' → ' + nomDe(f.a);
+    html = `<b>${labelAn(h)} · ${qui}</b>${fr(h.titre)}`;
+  } else if (survol && survol.type === 'voyager'){
+    html = '<b>1977 · Voyager 1</b>Bach, Mozart et Beethoven sur le disque d’or';
+  } else if (anneeSurvol != null && anneeSurvol > 1750.57 && anneeSurvol < 1756.07){
+    html = '<b>1750 – 1756 · silence</b>Bach est mort, Mozart n’est pas encore né.';
+  }
+  if (!html){ bulle.hidden = true; return; }
+  bulle.innerHTML = html; bulle.hidden = false;
+  const bw = bulle.offsetWidth, bh = bulle.offsetHeight;
+  let bx = x + 16, by = y + 16;
+  if (bx + bw > W - 4) bx = x - bw - 14;
+  if (by + bh > H - 4) by = y - bh - 14;
+  bulle.style.transform = `translate(${Math.round(Math.max(0, bx))}px,${Math.round(Math.max(0, by))}px)`;
+}
+
+function survolEn(x, y){
+  const c = cibleEn(x, y, false);
+  survol = c;
+  cv.style.cursor = c ? 'pointer' : '';
+  anneeSurvol = y >= yAn(1680) && y <= G.y1900 && x > G.rx - 4 ? clamp(anY(y), 1680, 1900) : null;
+  majBulle(x, y);
+}
+
+cv.addEventListener('pointermove', e => {
+  const [x, y] = pos(e), t = now();
+  if (ptr.px != null) croisements(ptr.px, ptr.py, x, y, t - ptr.pt);
+  ptr.px = x; ptr.py = y; ptr.pt = t;
+  if (e.pointerType === 'mouse'){ survolEn(x, y); lum.tx = x; lum.ty = y; lum.pointe = true; }
+  else { lum.tx = x; lum.ty = y; }
+  if (ptr.bas && Math.hypot(x - ptr.bas.x, y - ptr.bas.y) > 10) ptr.bas.bouge = true;
+});
+cv.addEventListener('pointerdown', e => {
+  const [x, y] = pos(e);
+  ptr.bas = { x, y, t: now(), bouge:false };
+  ptr.px = x; ptr.py = y; ptr.pt = now();
+  if (e.pointerType !== 'mouse'){ lum.tx = x; lum.ty = y; lum.pointe = true; }
+});
+cv.addEventListener('pointerup', e => {
+  const b = ptr.bas; ptr.bas = null;
+  const [x, y] = pos(e);
+  if (b && !b.bouge && now() - b.t < .6) toucher(x, y, e.pointerType !== 'mouse');
+  if (e.pointerType !== 'mouse'){ ptr.px = null; lum.pointe = false; }
+});
+cv.addEventListener('pointerleave', () => {
+  ptr.px = null; survol = null; anneeSurvol = null; lum.pointe = false;
+  bulle.hidden = true; cv.style.cursor = '';
+});
+cv.addEventListener('pointercancel', () => { ptr.bas = null; ptr.px = null; lum.pointe = false; });
+
+function toucher(x, y, tactile){
+  const c = cibleEn(x, y, tactile);
+  if (!c) return;
+  premiereInteraction();
+  if (c.type === 'compo') choisir('compo', c.id, { depuis:'harpe', y });
+  else if (c.type === 'fil') choisir('fil', c.id, { depuis:'harpe' });
+  else choisir('voyager', 'voyager', { depuis:'harpe' });
+}
+
+harpe.addEventListener('keydown', e => {
+  if (e.target !== harpe) return;
+  const i = sel && sel.type === 'compo' ? PAR_ID[sel.id].i : -1;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown'){ e.preventDefault(); choisir('compo', COMPOS[(i + 1) % 6].id, { depuis:'clavier' }); }
+  else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp'){ e.preventDefault(); choisir('compo', COMPOS[i < 0 ? 5 : (i + 5) % 6].id, { depuis:'clavier' }); }
+  else if (e.key === ' '){ e.preventDefault(); if (i >= 0) pincer(sel.id, null, 4); }
+  else if (e.key === 'Enter'){ const a = notice.querySelector('.entrer'); if (a){ e.preventDefault(); a.focus(); } }
+  else if (e.key === 'Escape'){ sel = null; rendreAccueil(); }
+});
+
+function premiereInteraction(){
+  if (interagi) return;
+  interagi = true;
+  consigne.classList.add('efface');
+  consigneTete.classList.add('efface');
+}
+
+/* =====================================================================
+   Choisir : une corde, un fil, ou la sonde
+   ===================================================================== */
+function choisir(type, id, o = {}){
+  const avant = sel;
+  sel = { type, id };
+  if (type === 'compo'){
+    const c = PAR_ID[id];
+    const g = o.via ? G.parId[o.via] : null;
+    if (g && avant && avant.type === 'compo' && avant.id !== id){
+      const sens = g.f.a === id ? 1 : -1;
+      lancerPulse(g, sens, () => { pincer(id, sens > 0 ? g.y1 : g.y0, 4.2); resonner(id, g.f.id); });
+    } else {
+      pincer(id, o.y != null ? o.y : yEmb(c), 4.6);
+      resonner(id);
+    }
+    rendreCompo(id, o);
+    annonce.textContent = `${c.complet}, ${Math.floor(c.n)} – ${Math.floor(c.m)}. ${c.site}.`;
+  } else if (type === 'fil'){
+    const f = PAR_FIL[id];
+    const groupe = f.hist ? G.fils.filter(g => g.f.hist === f.hist) : [G.parId[id]];
+    groupe.forEach((g, n) => setTimeout(() => {
+      pincer(g.f.de, g.y0, 2.6);
+      lancerPulse(g, 1, () => { if (g.f.a !== 'voyager') pincer(g.f.a, g.y1, 3); });
+    }, n * 140));
+    rendreFil(id, o, avant);
+    annonce.textContent = `${fr(histoire(f).titre)}, ${labelAn(histoire(f))}.`;
+  } else {
+    const groupe = G.fils.filter(g => g.f.a === 'voyager');
+    groupe.forEach((g, n) => setTimeout(() => {
+      pincer(g.f.de, g.y0, 2.2);
+      lancerPulse(g, 1, () => Son.jouer(PAR_ID[g.f.de].i, 1, null, true, true));
+    }, n * 160));
+    rendreVoyager(o, avant);
+    annonce.textContent = 'Voyager 1, le disque d’or.';
+  }
+}
+
+/* =====================================================================
+   La notice
+   ===================================================================== */
+function rendreAccueil(focus){
+  survolNotice = null; survolCompoNotice = null;
+  notice.innerHTML = `<div class="accueil">
+    <p class="intro lettrine">${fr('Sur la viole d’amour, des cordes qu’on ne touche jamais se mettent à vibrer quand une autre résonne. On les appelle cordes sympathiques.')}</p>
+    <p class="intro">${fr('Ici, chaque corde est une vie, tendue de la naissance à la mort. Pincez-en une. Celles qui l’ont connue, lue ou combattue vibrent avec elle, et chaque fil mène à une page.')}</p>
+    <h2 class="rubrique" id="r-pages" tabindex="-1">Les six pages</h2>
+    <ol class="table">${COMPOS.map(c => `
+      <li style="--c:${c.acc}">
+        <button class="ligne" type="button" data-c="${c.id}" data-table="1"><span class="nom">${c.nom}</span><span class="points" aria-hidden="true"></span><span class="t">${c.site}</span></button>
+        <p class="resume">${fr(c.desc)} <a class="ouvrir" href="${lienPage(c.id)}">Ouvrir la page<span aria-hidden="true"> →</span></a></p>
+      </li>`).join('')}
+    </ol>
+    <h2 class="rubrique">Lire les fils</h2>
+    <p class="petit">${fr('Un fil horizontal relie deux vivants. Ceux qui partent du bas d’une corde prolongent une œuvre après la mort.')}</p>
+    <ul class="legende">
+      <li><span class="ech" aria-hidden="true"></span>Document d’époque</li>
+      <li><span class="ech e-tem" aria-hidden="true"></span>Témoignage, souvenir</li>
+      <li><span class="ech e-leg" aria-hidden="true"></span>Légende, ouï-dire</li>
+      <li><span class="ech e-que" aria-hidden="true"></span>Querelle</li>
+    </ul>
+    <p class="petit">${fr('Entre 1750 et 1756, aucune corde ne vibre. Bach est mort, Mozart n’est pas encore né.')}</p>
+    <p class="petit pied">${fr('Les fils reprennent les anecdotes des six pages et le degré de fiabilité qu’elles leur donnent. Quelques-uns viennent d’ailleurs')}${' '}: <a href="https://musikverein.at/en/archiv/mozarts-symphonie-nr-40/" target="_blank" rel="noopener">le manuscrit de Mozart chez Brahms</a>, <a href="https://omifacsimiles.com/brochures/bach_chopin_wtc.html" target="_blank" rel="noopener">le Clavier annoté par Chopin</a>, <a href="https://science.nasa.gov/?p=385807" target="_blank" rel="noopener">le disque d’or</a>.</p>
+  </div>`;
+  if (focus){ const h = document.getElementById('r-pages'); h && h.focus({ preventScroll:true }); }
+}
+
+function groupesDe(id){
+  const map = new Map();
+  for (const f of FILS){
+    if (f.de !== id && f.a !== id) continue;
+    const cle = f.hist || f.id;
+    if (!map.has(cle)) map.set(cle, { cle, fils:[], autres:[] });
+    const gr = map.get(cle);
+    gr.fils.push(f);
+    const autre = f.de === id ? f.a : f.de;
+    if (!gr.autres.includes(autre)) gr.autres.push(autre);
+  }
+  return [...map.values()].sort((a, b) => cleAn(a.fils[0]) - cleAn(b.fils[0]));
+}
+
+function boutonVers(autre, via){
+  if (autre === 'voyager') return `<button class="vers" type="button" data-v="1" style="--c:#c9a356">Voyager 1</button>`;
+  return `<button class="vers" type="button" data-c="${autre}"${via ? ` data-via="${via}"` : ''} style="--c:${PAR_ID[autre].acc}">${PAR_ID[autre].nom}</button>`;
+}
+
+function piedFil(h){
+  const src = h.src ? (h.srcUrl ? `<a class="src" href="${h.srcUrl}" target="_blank" rel="noopener">${fr(h.src)}</a>` : fr(h.src)) : '';
+  const liens = h.liens.map(([cid, an]) => `<a href="${lienPage(cid, an)}">Lire chez ${PAR_ID[cid].nom}<span aria-hidden="true"> →</span></a>`).join('');
+  return `<p class="fil-pied"><span class="source">${src}</span><span class="lire">${liens}</span></p>`;
+}
+
+function niveauHtml(h){
+  const cls = h.querelle ? 'e-que' : h.niv === 'tem' ? 'e-tem' : h.niv === 'leg' ? 'e-leg' : '';
+  return `<span class="niveau"><span class="ech ${cls}" aria-hidden="true"></span>${h.lab}</span>`;
+}
+
+function itemFil(gr){
+  const h = histoire(gr.fils[0]);
+  const boutons = gr.autres.map(autre => {
+    const via = gr.fils.find(x => x.de === autre || x.a === autre);
+    return boutonVers(autre, via ? via.id : null);
+  }).join('');
+  return `<li class="fil" data-fils="${gr.fils.map(x => x.id).join(' ')}">
+    <div class="fil-tete"><span class="annee">${labelAn(h)}</span>${h.lieu ? `<span class="lieu">${h.lieu}</span>` : ''}${niveauHtml(h)}</div>
+    <p class="fil-avec">avec ${boutons}</p>
+    <p class="fil-nom">${fr(h.titre)}</p>
+    <p class="fil-texte">${fr(h.txt)}</p>
+    ${piedFil(h)}
+  </li>`;
+}
+
+function rendreCompo(id, o = {}){
+  const c = PAR_ID[id];
+  const groupes = groupesDe(id);
+  const prec = COMPOS[c.i - 1], suiv = COMPOS[c.i + 1];
+  survolNotice = null; survolCompoNotice = null;
+  notice.innerHTML = `<article class="fiche" style="--acc:${c.acc}">
+    <button class="retour" type="button" data-action="accueil"><span aria-hidden="true">←</span> Les six pages</button>
+    <p class="lieux">${c.lieux}</p>
+    <h2 class="nom-complet" tabindex="-1">${c.complet}</h2>
+    <p class="site-titre">${c.site}</p>
+    <p class="site-desc">${fr(c.desc)}</p>
+    <a class="entrer" href="${lienPage(id)}"><span>Entrer dans la page</span><span class="fleche" aria-hidden="true">→</span></a>
+    <figure class="embleme"><canvas class="mini" data-e="${id}" width="112" height="112" aria-hidden="true"></canvas><figcaption>${fr(c.emb)}</figcaption></figure>
+    <h3 class="rubrique">Cordes sympathiques <span class="compte">${groupes.length} fils</span></h3>
+    <ol class="fils">${groupes.map(itemFil).join('')}</ol>
+    <nav class="voisins" aria-label="Cordes voisines">
+      ${prec ? `<button class="voisin ouvrir" type="button" data-c="${prec.id}"><span aria-hidden="true">← </span>${prec.nom}</button>` : '<span></span>'}
+      ${suiv ? `<button class="voisin ouvrir" type="button" data-c="${suiv.id}">${suiv.nom}<span aria-hidden="true"> →</span></button>` : '<span></span>'}
+    </nav>
+  </article>`;
+  peindreMini(notice.querySelector('canvas.mini'), id);
+  apresRendu(o);
+}
+
+function rendreFil(id, o = {}, avant){
+  const f = PAR_FIL[id], h = histoire(f);
+  const membres = f.hist ? FILS.filter(x => x.hist === f.hist) : [f];
+  const noms = [...new Set(membres.flatMap(x => [x.de, x.a]))];
+  const retourCompo = avant && avant.type === 'compo' ? avant.id : null;
+  survolNotice = null; survolCompoNotice = null;
+  notice.innerHTML = `<article class="fiche">
+    <button class="retour" type="button" data-action="${retourCompo ? 'compo:' + retourCompo : 'accueil'}"><span aria-hidden="true">←</span> ${retourCompo ? PAR_ID[retourCompo].nom : 'Les six pages'}</button>
+    <p class="lieux">${labelAn(h)}${h.lieu ? ' · ' + h.lieu : ''}</p>
+    <h2 class="nom-complet" tabindex="-1">${fr(h.titre)}</h2>
+    <p class="paire">${noms.map(n => boutonVers(n, null)).join('<span class="sep" aria-hidden="true">·</span>')}</p>
+    <p class="fil-texte grand">${fr(h.txt)}</p>
+    <div class="fil-tete" style="margin-top:1rem">${niveauHtml(h)}</div>
+    ${piedFil(h)}
+  </article>`;
+  apresRendu(o);
+}
+
+function rendreVoyager(o = {}, avant){
+  const h = TETE.voyager;
+  const passe = Date.now() >= Date.UTC(2026, 10, 18);
+  const retourCompo = avant && avant.type === 'compo' ? avant.id : null;
+  survolNotice = null; survolCompoNotice = null;
+  notice.innerHTML = `<article class="fiche" style="--acc:#e3c27e">
+    <button class="retour" type="button" data-action="${retourCompo ? 'compo:' + retourCompo : 'accueil'}"><span aria-hidden="true">←</span> ${retourCompo ? PAR_ID[retourCompo].nom : 'Les six pages'}</button>
+    <p class="lieux">5 septembre 1977 · Cap Canaveral</p>
+    <h2 class="nom-complet" tabindex="-1">Voyager 1</h2>
+    <p class="site-titre">Le disque d’or</p>
+    <p class="fil-texte grand">${fr(h.txt)}</p>
+    <p class="fil-texte grand">${fr(passe
+      ? 'Depuis le 18 novembre 2026, la sonde est à plus d’un jour-lumière de la Terre. La page consacrée à Bach porte ce nom.'
+      : 'Le 18 novembre 2026, la sonde sera pour la première fois à un jour-lumière de la Terre. La page consacrée à Bach porte ce nom.')}</p>
+    <p class="paire" style="margin-top:1.2rem">${['bach', 'mozart', 'beethoven'].map(n => boutonVers(n, null)).join('<span class="sep" aria-hidden="true">·</span>')}</p>
+    ${piedFil(h)}
+  </article>`;
+  apresRendu(o);
+}
+
+function apresRendu(o){
+  if (o.depuis === 'notice' || o.depuis === 'clavier'){
+    const h = notice.querySelector('h2'); if (h) h.focus({ preventScroll:true });
+  }
+  if (o.depuis === 'clavier') harpe.focus({ preventScroll:true });
+  const comport = reduit ? 'auto' : 'smooth';
+  const large = matchMedia('(min-width: 860px)').matches;
+  const rn = notice.getBoundingClientRect();
+  if (large){
+    if (rn.top < 0) window.scrollTo({ top: window.scrollY + rn.top - 28, behavior: comport });
+  } else if (o.depuis === 'notice'){
+    const rh = harpe.getBoundingClientRect();
+    window.scrollTo({ top: window.scrollY + rh.top - 6, behavior: comport });
+  } else if (o.depuis === 'harpe'){
+    const visible = innerHeight - rn.top;
+    if (visible < 200) window.scrollTo({ top: window.scrollY + (rn.top - innerHeight + 280), behavior: comport });
+  }
+}
+
+notice.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || !notice.contains(b)) return;
+  const act = b.dataset.action;
+  if (act === 'accueil'){ sel = null; rendreAccueil(true); return; }
+  if (act && act.startsWith('compo:')){ choisir('compo', act.slice(6), { depuis:'notice' }); return; }
+  if (b.dataset.v){ choisir('voyager', 'voyager', { depuis:'notice' }); return; }
+  if (b.dataset.c){ premiereInteraction(); choisir('compo', b.dataset.c, { depuis:'notice', via: b.dataset.via || null }); }
+});
+function allumerDepuis(el){
+  const li = el && el.closest ? el.closest('.fil') : null;
+  survolNotice = li ? new Set(li.dataset.fils.split(' ')) : null;
+  notice.querySelectorAll('.fil.allume').forEach(x => { if (x !== li) x.classList.remove('allume'); });
+  if (li) li.classList.add('allume');
+  const ligne = el && el.closest ? el.closest('[data-table]') : null;
+  survolCompoNotice = ligne ? ligne.dataset.c : null;
+}
+notice.addEventListener('pointerover', e => allumerDepuis(e.target));
+notice.addEventListener('pointerleave', () => allumerDepuis(null));
+notice.addEventListener('focusin', e => allumerDepuis(e.target));
+notice.addEventListener('focusout', () => allumerDepuis(null));
+
+function peindreMini(m, id){
+  if (!m) return;
+  const g = m.getContext('2d'), d = 2;
+  g.setTransform(d, 0, 0, d, 0, 0); g.clearRect(0, 0, 56, 56);
+  g.strokeStyle = 'rgba(205,171,104,.7)'; g.lineWidth = 1;
+  g.beginPath(); g.moveTo(32, 3); g.lineTo(32, 53); g.stroke();
+  const u = 8.4;
+  if (id === 'bach') lune(g, 31.5, 28, u * 1.2, 99, true);
+  else if (id === 'mozart') etourneau(g, 32, 29, u * 1.3, 99);
+  else if (id === 'beethoven') cochlee(g, 27, 28, u * 1.6, 99);
+  else if (id === 'chopin') fioritures(g, 33, 30, u * 1.25, 99);
+  else if (id === 'liszt') comete(g, 32, 44, 53, u * .95, 99);
+  else rastral(g, 32, 28, u * 1.3, 99);
+}
+
+/* =====================================================================
+   Démarrage
+   ===================================================================== */
+(function grain(){
+  try {
+    const c = document.createElement('canvas'); c.width = c.height = 160;
+    const g = c.getContext('2d'), im = g.createImageData(160, 160);
+    for (let i = 0; i < im.data.length; i += 4){
+      const v = Math.random() * 255 | 0;
+      im.data[i] = im.data[i + 1] = im.data[i + 2] = v;
+      im.data[i + 3] = Math.random() < .5 ? 0 : 20 + (Math.random() * 34 | 0);
+    }
+    g.putImageData(im, 0, 0);
+    document.documentElement.style.setProperty('--grain', `url(${c.toDataURL()})`);
+  } catch (e) {}
+})();
+
+if (matchMedia('(hover: none)').matches) consigne.textContent = 'Touchez une corde. Glissez le doigt en travers pour un arpège.';
+else consigneTete.textContent = 'Survolez les cordes pour les pincer. Cliquez pour suivre leurs fils.';
+
+if (document.fonts && document.fonts.load){
+  ['600 12px "Bodoni Moda"', 'italic 400 14px "Bodoni Moda"', '500 10px "Archivo"'].forEach(p => document.fonts.load(p).catch(() => {}));
+  document.fonts.load('13px "Noto Music"', '\u{1D13D}').catch(() => {});
+}
+
+rendreAccueil(false);
+mesurer();
+lum.x = W * .5; lum.y = H * .4;
+new ResizeObserver(() => mesurer()).observe(harpe);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden){ cancelAnimationFrame(rafId); rafId = 0; }
+  else if (!rafId){ derniere = now(); rafId = requestAnimationFrame(boucle); }
+});
+rafId = requestAnimationFrame(boucle);
+
+const ancre = (location.hash || '').slice(1).toLowerCase();
+if (PAR_ID[ancre]) setTimeout(() => choisir('compo', ancre, { depuis:'ancre' }), reduit ? 0 : 1500);
+})();
+</script>
+
+</body></html>
